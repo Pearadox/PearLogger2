@@ -63,9 +63,14 @@ class Ui_backEnd(object):
     def createIDBox(self, groupBox, isStudent, row, column):
         if isStudent:
             ui.studentTable.setCellWidget(row, column, groupBox)
-            pass
         else:
-            pass
+            ui.mentorTable.setCellWidget(row, column, groupBox)
+
+    def removeIDBox(self, isStudent, row, column):
+        if isStudent:
+            ui.studentTable.removeCellWidget(row, column)
+        else:
+            ui.mentorTable.removeCellWidget(row, column)
 
     # fades error message label
     def fade_errorMessage(self):
@@ -127,6 +132,9 @@ class Ui_frontEnd(object):
         mainWindow.show()
 
         self.customConfiguration()
+
+        # initialize ID Boxes, must be done after app object created for some stupid reason
+        core.initialize_IDBoxes()
 
         sys.exit(app.exec_())
 

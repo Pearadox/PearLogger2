@@ -26,12 +26,6 @@ class Profile(object):
         self.picture_path = picture_path
         self.category = category
 
-        # construct picture label
-        self.construct_picture_label()
-
-        # construct entire groupBox
-        self.construct_groupBox()
-
     def construct_groupBox(self):
         try:
             self.groupBox = QtWidgets.QGroupBox()
@@ -65,6 +59,9 @@ class Profile(object):
 
         # associate label with picture
         self.picture_label.setPixmap(pixmap_scaled)
+
+        # set label alignment to center
+        self.picture_label.setAlignment(QtCore.Qt.AlignHCenter)
 
 
 class LogEntry(object):

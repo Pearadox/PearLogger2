@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'PearLog.ui'
 #
-# Created by: PyQt5 UI code generator 5.11.2
+# Created by: PyQt5 UI code generator 5.11.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -67,6 +67,7 @@ class Ui_mainWindow(object):
         self.mentorTable.verticalHeader().setVisible(False)
         self.mentorTable.verticalHeader().setDefaultSectionSize(170)
         self.mentorTable.verticalHeader().setHighlightSections(True)
+        self.mentorTable.verticalHeader().setStretchLastSection(False)
         self.loginLineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.loginLineEdit.setGeometry(QtCore.QRect(1550, 0, 361, 61))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
@@ -104,6 +105,7 @@ class Ui_mainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.errorLabel.setFont(font)
+        self.errorLabel.setText("")
         self.errorLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.errorLabel.setObjectName("errorLabel")
         mainWindow.setCentralWidget(self.centralwidget)
@@ -134,9 +136,12 @@ class Ui_mainWindow(object):
         self.actionSign_Out_All.setObjectName("actionSign_Out_All")
         self.actionClear_All = QtWidgets.QAction(mainWindow)
         self.actionClear_All.setObjectName("actionClear_All")
+        self.actionModify_Person = QtWidgets.QAction(mainWindow)
+        self.actionModify_Person.setObjectName("actionModify_Person")
         self.menuActions.addAction(self.actionSign_Out_All)
         self.menuActions.addAction(self.actionClear_All)
         self.menuPeople.addAction(self.actionAdd_Person)
+        self.menuPeople.addAction(self.actionModify_Person)
         self.menuPeople.addSeparator()
         self.menuPeople.addAction(self.actionView_Hours)
         self.menuFile.addAction(self.actionGenerate_Report)
@@ -154,8 +159,6 @@ class Ui_mainWindow(object):
     def retranslateUi(self, mainWindow):
         _translate = QtCore.QCoreApplication.translate
         mainWindow.setWindowTitle(_translate("mainWindow", "MainWindow"))
-        self.errorLabel.setText(_translate("mainWindow", "\n"
-""))
         self.menuActions.setTitle(_translate("mainWindow", "Actions"))
         self.menuPeople.setTitle(_translate("mainWindow", "People"))
         self.menuFile.setTitle(_translate("mainWindow", "File"))
@@ -166,6 +169,7 @@ class Ui_mainWindow(object):
         self.actionAdd_Person.setText(_translate("mainWindow", "Add Person"))
         self.actionSign_Out_All.setText(_translate("mainWindow", "Sign Out All"))
         self.actionClear_All.setText(_translate("mainWindow", "Clear All"))
+        self.actionModify_Person.setText(_translate("mainWindow", "Modify Person"))
 
 
 if __name__ == "__main__":

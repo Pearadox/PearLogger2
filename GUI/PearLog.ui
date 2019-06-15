@@ -277,8 +277,7 @@
      </font>
     </property>
     <property name="text">
-     <string>
-</string>
+     <string/>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -306,6 +305,7 @@
      <string>People</string>
     </property>
     <addaction name="actionAdd_Person"/>
+    <addaction name="actionModify_Person"/>
     <addaction name="separator"/>
     <addaction name="actionView_Hours"/>
    </widget>
@@ -357,6 +357,11 @@
   <action name="actionClear_All">
    <property name="text">
     <string>Clear All</string>
+   </property>
+  </action>
+  <action name="actionModify_Person">
+   <property name="text">
+    <string>Modify Person</string>
    </property>
   </action>
  </widget>

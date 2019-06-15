@@ -8,5 +8,5 @@ if __name__ == "__main__":
     from PearLogger_Core import Core
 
     core = Core()
-    core.initialize()
+    core.initialize_DataManager()
     frontEnd = Ui_frontEnd()
