@@ -10,7 +10,7 @@ class DataManager(object):
 
     peopleDict = dict()  # k: ID number  v: profile object
     log = list()  # list of logEntry objects
-    logged = dict()  # k: ID number  v: total logged time (seconds)
+    loggedTime = dict()  # k: ID number  v: total logged time (seconds)
     loggedIn = dict()  # k: ID number  v: login time (epoch)
 
     def initialize(self):
@@ -97,11 +97,11 @@ class DataManager(object):
 
                     # calculate and add logged hours to logged dictionary
                     # create ID entry if it doesn't exist yet
-                    if ID not in self.logged.keys():
-                        self.logged[ID] = 0
+                    if ID not in self.loggedTime.keys():
+                        self.loggedTime[ID] = 0
 
                     # add dt to logged
-                    self.logged[ID] += logout_time - login_time
+                    self.loggedTime[ID] += logout_time - login_time
 
                 except:
                     print("ERROR: Parsing error in log file (data/log.pear, line " + str(lineCount) + ")")

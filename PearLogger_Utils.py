@@ -45,6 +45,10 @@ class Profile(object):
             personLabel = QtWidgets.QLabel(self.name + " (" + self.ID + ")")
             personLabel.setAlignment(QtCore.Qt.AlignCenter)
             personLabel.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+            font = QtGui.QFont()
+            font.setFamily("OpenSymbol")
+            font.setPointSize(10)
+            personLabel.setFont(font)
 
             # put name/ID label and picture label together in one vertical box container
             vbox = QtWidgets.QVBoxLayout()
@@ -58,16 +62,16 @@ class Profile(object):
 
     def construct_pixmap(self):
 
-        self.picture_label = QtWidgets.QLabel()
+        picture_label = QtWidgets.QLabel()
 
         # set maximum size of picture label for reference
-        self.picture_label.setMaximumSize(150, 150)
+        picture_label.setMaximumSize(150, 150)
 
         # create pixmap
         pixmap_raw = QtGui.QPixmap(self.picture_path)
 
         # scale pixmap with constant aspect ratio to match picture label
-        self.pixmap_scaled = pixmap_raw.scaled(self.picture_label.size(), QtCore.Qt.KeepAspectRatio)
+        self.pixmap_scaled = pixmap_raw.scaled(picture_label.size(), QtCore.Qt.KeepAspectRatio)
 
 
 class LogEntry(object):

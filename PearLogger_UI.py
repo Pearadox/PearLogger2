@@ -73,30 +73,20 @@ class Ui_backEnd(object):
         else:
             ui.mentorTable.removeCellWidget(row, column)
 
-    # fades error message label
-    def fade_errorMessage(self):
-        print("asfdawsed")
+    # show formatted error message under sign-in lineEdit
+    def showError_message(self, error_message):
+        # red-colored text, set label to message
+        ui.errorLabel.setText("<html><hea   d/><body><p><span style=\" color:#dc0000;\">"+error_message+"</span></p></body></html>")
+
+        # add fading animation
         self.effect = QGraphicsOpacityEffect()
         ui.errorLabel.setGraphicsEffect(self.effect)
 
         self.animation = QtCore.QPropertyAnimation(self.effect, b"opacity")
-        self.animation.setDuration(1000)
+        self.animation.setDuration(3000)
         self.animation.setStartValue(1)
         self.animation.setEndValue(0)
         self.animation.start()
-
-    # show formatted error message under sign-in lineEdit
-    def showError_message(self, error_message):
-        # red-colored text
-        ui.errorLabel.setText("<html><hea   d/><body><p><span style=\" color:#dc0000;\">"+error_message+"</span></p></body></html>")
-        try:
-            self.timeoutTimer = QtCore.QTimer()
-            self.timeoutTimer.setInterval(3000)
-            self.timeoutTimer.setSingleShot(True)
-            self.timeoutTimer.timeout.connect(self.fade_errorMessage)
-            self.timeoutTimer.start()
-        except Exception as e:
-            print(e)
 
     # makes a prompt window with an Error icon
     def showError_popup(title, message):
@@ -136,6 +126,9 @@ class Ui_frontEnd(object):
 
         # initialize ID Boxes, must be done after app object created for some stupid reason
         core.initialize_IDBoxes()
+
+        # initialize previous logins
+        core.initialize_previous_logins()
 
         sys.exit(app.exec_())
 
