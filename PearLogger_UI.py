@@ -49,7 +49,7 @@ class Ui_backEnd(object):
         pass
 
     # menu button, popup GUI to change options
-    def options_menu_trigger(self):
+    def changeRules_menu_trigger(self):
         pass
 
     # menu button, reloads data read from files
@@ -108,6 +108,27 @@ class Ui_backEnd(object):
         msg.setStandardButtons(QtWidgets.QMessageBox.Ok)  # set the buttons available on the prompt
         msg.exec()
 
+    def setLeaderboard(self, rank, name, time, maxTime):
+        widgets = self.get_leaderboard_widgets(rank)
+        widgets[0].setText(name)
+        widgets[1].setText(str(round(time, 1)))
+        widgets[2].setMaximum(maxTime)
+        widgets[2].setValue(time)
+
+    # returns leaderboard widgets tuple given a rank ([0]=name label, [1]=time label, [2]=time progress bar)
+    def get_leaderboard_widgets(self, rank):
+        return {
+            1: (ui.name_label_rank_1, ui.time_label_rank_1, ui.bar_rank_1),
+            2: (ui.name_label_rank_2, ui.time_label_rank_2, ui.bar_rank_2),
+            3: (ui.name_label_rank_3, ui.time_label_rank_3, ui.bar_rank_3),
+            4: (ui.name_label_rank_4, ui.time_label_rank_4, ui.bar_rank_4),
+            5: (ui.name_label_rank_5, ui.time_label_rank_5, ui.bar_rank_5),
+            6: (ui.name_label_rank_6, ui.time_label_rank_6, ui.bar_rank_6),
+            7: (ui.name_label_rank_7, ui.time_label_rank_7, ui.bar_rank_7),
+            8: (ui.name_label_rank_8, ui.time_label_rank_8, ui.bar_rank_8),
+            9: (ui.name_label_rank_9, ui.time_label_rank_9, ui.bar_rank_9),
+            10: (ui.name_label_rank_10, ui.time_label_rank_10, ui.bar_rank_10)
+        }.get(rank)
 
 
 class Ui_frontEnd(object):
@@ -116,11 +137,10 @@ class Ui_frontEnd(object):
     def __init__(self):
         import sys
         app = QtWidgets.QApplication(sys.argv)
-        mainWindow = QtWidgets.QMainWindow()
+        self.mainWindow = QtWidgets.QMainWindow()
 
-        ui.setupUi(mainWindow)
-        mainWindow.showMaximized()
-        mainWindow.show()
+        ui.setupUi(self.mainWindow)
+        self.mainWindow.showFullScreen()
 
         self.customConfiguration()
 
@@ -129,6 +149,9 @@ class Ui_frontEnd(object):
 
         # initialize previous logins
         core.initialize_previous_logins()
+
+        # update leaderboard
+        core.updateLeaderboard()
 
         sys.exit(app.exec_())
 
@@ -144,17 +167,33 @@ class Ui_frontEnd(object):
         # connect - hitting 'ENTER' on signin line edit
         ui.loginLineEdit.returnPressed.connect(backEnd.signIn_lineEdit_trigger)
 
+        # connect - hitting 'ESC' escapes fullscreen
+        self.mainWindow.keyPressEvent = self.window_keypress_event
+
         # connect - menu action buttons
         ui.actionSign_Out_All.triggered.connect(backEnd.signOutAll_menu_trigger)
         ui.actionClear_All.triggered.connect(backEnd.clearAll_menu_trigger)
         ui.actionView_Hours.triggered.connect(backEnd.viewHours_menu_trigger)
         ui.actionGenerate_Report.triggered.connect(backEnd.generateReport_menu_trigger)
-        ui.actionOptions.triggered.connect(backEnd.options_menu_trigger)
+        ui.actionChange_Rules.triggered.connect(backEnd.changeRules_menu_trigger)
+        ui.actionExit_Fullscreen.triggered.connect(self.show_windowed)
+        ui.actionFullscreen.triggered.connect(self.show_fullscreen)
         ui.actionReload_Data.triggered.connect(backEnd.reloadData_menu_trigger)
         ui.actionAdd_Person.triggered.connect(backEnd.addPerson_menu_trigger)
 
+    def window_keypress_event(self, event):
+        # pressing escapes switches to windowed mode
+        if event.key() == QtCore.Qt.Key_Escape:
+            self.show_windowed()
 
-def showErrorMessage_Caller(message):
+    def show_windowed(self):
+        self.mainWindow.showMaximized()
+
+    def show_fullscreen(self):
+        self.mainWindow.showFullScreen()
+
+
+def showErrorMessage_caller(message):
     backEnd.showError_message(message)
 
 

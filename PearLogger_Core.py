@@ -31,7 +31,7 @@ class Core(object):
             self.add_box(dm.peopleDict[ID])
 
     # logs person in or out
-    def log(self, ID):
+    def log(self, ID, logTime=True):
         # make sure ID exists in system
         if ID in dm.peopleDict.keys():
             # get current epoch time
@@ -45,15 +45,18 @@ class Core(object):
                 # logout
                 print("Logging out " + ID)
 
-                # calculate and record logged hours
-                # create ID entry for logging times if it doesn't exist yet
-                if ID not in dm.loggedTime.keys():
-                    dm.loggedTime[ID] = 0
-                # add dt to logged
-                dm.loggedTime[ID] += currentTime - dm.loggedIn[ID]
+                current_session_logged_time = currentTime - dm.loggedIn[ID]
 
-                # add time to log
-                dm.appendLog(ID, dm.loggedIn[ID], currentTime)
+                if logTime:
+                    # calculate and record logged hours
+                    # create ID entry for logging times if it doesn't exist yet
+                    if ID not in dm.loggedTime.keys():
+                        dm.loggedTime[ID] = 0
+                    # add dt to logged
+                    dm.loggedTime[ID] += current_session_logged_time
+
+                    # add time to log
+                    dm.appendLog(ID, dm.loggedIn[ID], currentTime)
 
                 # remove ID from loggedIn dictionary
                 dm.loggedIn.pop(ID, None)
@@ -105,6 +108,14 @@ class Core(object):
 
         backEnd.setIDBox(profile.create_groupBox(), profile.isStudent, row, column)
 
+    def clearHours(self, ID):
+        # make sure person is still signed in
+        if ID in dm.loggedIn.keys():
+            self.log(ID, False)
+
+    def clearAllHours(self):
+        pass
+
     # remove ID box from GUI Table
     def remove_box(self, profile):
         from PearLogger_UI import backEnd
@@ -133,25 +144,40 @@ class Core(object):
         # update list to match
         studentTableOrder.remove(profile) if profile.isStudent else mentorTableOrder.remove(profile)
 
-
     def updateLeaderboard(self):
+        from PearLogger_UI import backEnd
+
         # sorts times in reverse order, gives a list of tuples ([0]=ID, [1]=time)
         sortedTimes = sorted(dm.loggedTime.items(), key=lambda kv: kv[1], reverse=True)
 
         # keep track of ranks
         rank = 1
+
+        # need max time to determine bar sizes
+        top_time = 0
+
         for tup in sortedTimes:
+            # only take top 10
+            if rank > 10:
+                break
+
             # get profile with ID
             profile = dm.peopleDict[tup[0]]
 
             # calculate hours
             hours = tup[1]/3600
 
+            # set max time if top rank
+            if rank is 1:
+                top_time = hours
 
+            # send values to leaderboard backend
+            backEnd.setLeaderboard(rank, profile.name, hours, top_time)
 
+            # increase rank by 1 for next loop
             rank += 1
 
     def showErrorMessage(self, message):
-        from PearLogger_UI import showErrorMessage_Caller
-        showErrorMessage_Caller(message)
+        from PearLogger_UI import showErrorMessage_caller
+        showErrorMessage_caller(message)
 

@@ -40,7 +40,6 @@ class Profile(object):
             # set label alignment to center
             picture_label.setAlignment(QtCore.Qt.AlignHCenter)
 
-            groupBox = QtWidgets.QGroupBox()
             # create label for name and ID
             personLabel = QtWidgets.QLabel(self.name + " (" + self.ID + ")")
             personLabel.setAlignment(QtCore.Qt.AlignCenter)
@@ -48,15 +47,28 @@ class Profile(object):
             font = QtGui.QFont()
             font.setFamily("OpenSymbol")
             font.setPointSize(10)
+
             personLabel.setFont(font)
+
+            # add colors to text (student=(121, 86, 10), mentor=(10,129,10)
+            if self.isStudent:
+                personLabel.setStyleSheet("QLabel { color: rgb(121, 86, 10)}")
+            else:
+                personLabel.setStyleSheet("QLabel { color: rgb(10, 129, 10)}")
 
             # put name/ID label and picture label together in one vertical box container
             vbox = QtWidgets.QVBoxLayout()
             vbox.addWidget(picture_label)
             vbox.addWidget(personLabel)
             vbox.addStretch(1)
-            groupBox.setLayout(vbox)  # add the vbox to groupbox
-            return groupBox
+
+            # groupBox will hold the widgets together
+            self.groupBox = QtWidgets.QGroupBox()
+
+            # add vbox to groupBox
+            self.groupBox.setLayout(vbox)
+
+            return self.groupBox
         except Exception as e:
             print(e)
 
@@ -92,5 +104,3 @@ class Constants(object):
 
     MENTOR_TABLE_ROWS = 2
     MENTOR_TABLE_COLUMNS = 9
-
-    LEADERBOARD_ROWS = 10
