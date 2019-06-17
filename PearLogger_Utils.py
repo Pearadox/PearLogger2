@@ -1,6 +1,4 @@
 # Objects to hold data
-import copy
-import time
 
 from PyQt5 import QtWidgets, QtGui, QtCore
 

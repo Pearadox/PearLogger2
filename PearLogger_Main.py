@@ -1,6 +1,5 @@
 # Program starts here
 # Creates GUI, reads in files, and starts running
-import sys
 
 if __name__ == "__main__":
 
