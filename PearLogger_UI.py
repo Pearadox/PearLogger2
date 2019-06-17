@@ -1,6 +1,7 @@
 # front and back end GUI
 
 import _thread
+import copy
 import time
 
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -60,7 +61,7 @@ class Ui_backEnd(object):
         pass
 
     # creates ID box with name, picture, and ID in table
-    def createIDBox(self, groupBox, isStudent, row, column):
+    def setIDBox(self, groupBox, isStudent, row, column):
         if isStudent:
             ui.studentTable.setCellWidget(row, column, groupBox)
         else:

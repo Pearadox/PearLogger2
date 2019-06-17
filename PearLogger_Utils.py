@@ -1,4 +1,6 @@
 # Objects to hold data
+import copy
+import time
 
 from PyQt5 import QtWidgets, QtGui, QtCore
 
@@ -14,54 +16,58 @@ class Profile(object):
     ID = ""
     name = ""
     picture_path = ""
-    picture_label = None
+    pixmap_scaled = None
     category = -1
-
-    # group box for table display
-    groupBox = None
+    isStudent = bool()
 
     def __init__(self, ID, name, picture_path, category):
         self.ID = ID
         self.name = name
         self.picture_path = picture_path
         self.category = category
+        self.isStudent = category == self.CATEGORY_STUDENT
 
-    def construct_groupBox(self):
+    def create_groupBox(self):
         try:
-            self.groupBox = QtWidgets.QGroupBox()
+            picture_label = QtWidgets.QLabel()
 
+            # set maximum size of picture label
+            picture_label.setMaximumSize(150, 150)
+
+            # associate label with picture
+            picture_label.setPixmap(self.pixmap_scaled)
+
+            # set label alignment to center
+            picture_label.setAlignment(QtCore.Qt.AlignHCenter)
+
+            groupBox = QtWidgets.QGroupBox()
             # create label for name and ID
             personLabel = QtWidgets.QLabel(self.name + " (" + self.ID + ")")
             personLabel.setAlignment(QtCore.Qt.AlignCenter)
             personLabel.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
 
-           # put name/ID label and picture label together in one vertical box container
+            # put name/ID label and picture label together in one vertical box container
             vbox = QtWidgets.QVBoxLayout()
-            vbox.addWidget(self.picture_label)
+            vbox.addWidget(picture_label)
             vbox.addWidget(personLabel)
             vbox.addStretch(1)
-            self.groupBox.setLayout(vbox)  # add the vbox to groupbox
+            groupBox.setLayout(vbox)  # add the vbox to groupbox
+            return groupBox
         except Exception as e:
             print(e)
 
-    def construct_picture_label(self):
+    def construct_pixmap(self):
 
         self.picture_label = QtWidgets.QLabel()
 
-        # set maximum size of picture label
-        self.picture_label.setMaximumSize(150,150)
+        # set maximum size of picture label for reference
+        self.picture_label.setMaximumSize(150, 150)
 
         # create pixmap
         pixmap_raw = QtGui.QPixmap(self.picture_path)
 
         # scale pixmap with constant aspect ratio to match picture label
-        pixmap_scaled = pixmap_raw.scaled(self.picture_label.size(), QtCore.Qt.KeepAspectRatio)
-
-        # associate label with picture
-        self.picture_label.setPixmap(pixmap_scaled)
-
-        # set label alignment to center
-        self.picture_label.setAlignment(QtCore.Qt.AlignHCenter)
+        self.pixmap_scaled = pixmap_raw.scaled(self.picture_label.size(), QtCore.Qt.KeepAspectRatio)
 
 
 class LogEntry(object):
@@ -73,3 +79,14 @@ class LogEntry(object):
         self.ID = ID
         self.login_time = login_time
         self.logout_time = logout_time
+
+
+class Constants(object):
+
+    STUDENT_TABLE_ROWS = 4
+    STUDENT_TABLE_COLUMNS = 9
+
+    MENTOR_TABLE_ROWS = 2
+    MENTOR_TABLE_COLUMNS = 9
+
+    LEADERBOARD_ROWS = 10

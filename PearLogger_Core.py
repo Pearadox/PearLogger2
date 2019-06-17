@@ -1,8 +1,8 @@
 # core functionality of PearLogger
-
+import copy
 import time, datetime
 from PearLogger_DataManager import DataManager
-from PearLogger_Utils import Profile
+from PearLogger_Utils import Profile, Constants
 from PyQt5 import QtWidgets
 
 MONTH = ('January', 'February', 'March', 'April', 'May', 'June', 'July',
@@ -22,16 +22,19 @@ class Core(object):
     # this must be done after app object created in ui
     def initialize_IDBoxes(self):
         for ID, profile in dm.peopleDict.items():
-            profile.construct_picture_label()
-            profile.construct_groupBox()
+            profile.construct_pixmap()
 
     # logs person in or out
     def log(self, ID):
         from PearLogger_UI import backEnd
 
+        # make sure ID exists in system
         if ID in dm.peopleDict.keys():
             # get current epoch time
             currentTime = int(time.time())
+
+            # get profile
+            profile = dm.peopleDict[ID]
 
             # choose whether to login or logout
             if ID in dm.loggedIn.keys():
@@ -56,7 +59,29 @@ class Core(object):
 
                 # remove ID box from GUI Table
 
+                # find coordinates to remove picture from
+                index = studentTableOrder.index(profile) if profile.isStudent else mentorTableOrder.index(profile)
 
+                # remove picture and shift other pictures down
+                while index < len(studentTableOrder if profile.isStudent else mentorTableOrder)-1:
+                    # get profile of next person to shift down
+                    newProfile = studentTableOrder[index+1] if profile.isStudent else mentorTableOrder[index+1]
+
+                    # calculate row and column of current box
+                    row = int(index / Constants.STUDENT_TABLE_COLUMNS)
+                    column = int(index % Constants.STUDENT_TABLE_COLUMNS)
+
+                    # shift next person down to current box
+                    backEnd.setIDBox(newProfile.create_groupBox(), profile.isStudent, row, column)
+                    index += 1
+
+                # delete last box
+                row = int(index / Constants.STUDENT_TABLE_COLUMNS)
+                column = int(index % Constants.STUDENT_TABLE_COLUMNS)
+                backEnd.removeIDBox(profile.isStudent, row, column)
+
+                # update list to match
+                studentTableOrder.remove(profile) if profile.isStudent else mentorTableOrder.remove(profile)
             else:
                 # login
                 print("Logging in " + ID)
@@ -69,9 +94,19 @@ class Core(object):
 
                 # add ID box to GUI Table
 
-                # check if student to see which table to put ID box in
-                isStudent = dm.peopleDict[ID].category == Profile.CATEGORY_STUDENT
-                backEnd.createIDBox(dm.peopleDict[ID].groupBox, isStudent, 0, 0)
+                # choose which table to add picture to
+                if profile.isStudent:
+                    studentTableOrder.append(profile)
+                    # choose what coordinates to put picture in
+                    row = (len(studentTableOrder)-1) / Constants.STUDENT_TABLE_COLUMNS
+                    column = (len(studentTableOrder)-1) % Constants.STUDENT_TABLE_COLUMNS
+                else:
+                    mentorTableOrder.append(profile)
+                    # choose what coordinates to put picture in
+                    row = (len(mentorTableOrder)-1) / Constants.MENTOR_TABLE_COLUMNS
+                    column = (len(mentorTableOrder)-1) % Constants.MENTOR_TABLE_COLUMNS
+
+                backEnd.setIDBox(profile.create_groupBox(), profile.isStudent, row, column)
 
             # successful
             return True
