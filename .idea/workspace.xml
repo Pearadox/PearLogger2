@@ -36,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PearLogger_Core.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="574">
-              <caret line="132" column="24" lean-forward="true" selection-start-line="132" selection-start-column="24" selection-end-line="132" selection-end-column="24" />
+            <state relative-caret-position="544">
+              <caret line="159" column="27" lean-forward="true" selection-start-line="159" selection-start-column="27" selection-end-line="159" selection-end-column="27" />
               <folding>
                 <element signature="e#35#46#0" expanded="true" />
               </folding>
@@ -48,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/log.pear">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="321" column="23" lean-forward="true" selection-start-line="321" selection-start-column="23" selection-end-line="321" selection-end-column="23" />
+            <state relative-caret-position="179">
+              <caret line="31" column="23" lean-forward="true" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -103,6 +103,7 @@
       <find>align</find>
       <find>font</find>
       <find>scroll</find>
+      <find>0</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -118,7 +119,6 @@
         <option value="$PROJECT_DIR$/PearLogger_UI_BackEnd.py" />
         <option value="$PROJECT_DIR$/GUI/Instructions.txt" />
         <option value="$PROJECT_DIR$/PearLogger_FileManager.py" />
-        <option value="$PROJECT_DIR$/data/log.pear" />
         <option value="$PROJECT_DIR$/PearLogger_UI_FrontEnd.py" />
         <option value="$PROJECT_DIR$/GUI/GUIPearLog.py" />
         <option value="$PROJECT_DIR$/PearLogger_Main.py" />
@@ -128,6 +128,7 @@
         <option value="$PROJECT_DIR$/data/loggedIn.pear" />
         <option value="$PROJECT_DIR$/PearLogger_Core.py" />
         <option value="$PROJECT_DIR$/PearLogger_UI.py" />
+        <option value="$PROJECT_DIR$/data/log.pear" />
       </list>
     </option>
   </component>
@@ -455,16 +456,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PearLogger_Core.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="132" column="24" lean-forward="true" selection-start-line="132" selection-start-column="24" selection-end-line="132" selection-end-column="24" />
-          <folding>
-            <element signature="e#35#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PearLogger_UI.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -475,10 +466,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PearLogger_Core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="159" column="27" lean-forward="true" selection-start-line="159" selection-start-column="27" selection-end-line="159" selection-end-column="27" />
+          <folding>
+            <element signature="e#35#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/log.pear">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="321" column="23" lean-forward="true" selection-start-line="321" selection-start-column="23" selection-end-line="321" selection-end-column="23" />
+        <state relative-caret-position="179">
+          <caret line="31" column="23" lean-forward="true" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
         </state>
       </provider>
     </entry>
