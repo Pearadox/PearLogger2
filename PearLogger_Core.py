@@ -1,9 +1,7 @@
 # core functionality of PearLogger
-import copy
 import time, datetime
 from PearLogger_DataManager import DataManager
-from PearLogger_Utils import Profile, Constants
-from PyQt5 import QtWidgets
+from PearLogger_Utils import Constants
 
 MONTH = ('January', 'February', 'March', 'April', 'May', 'June', 'July',
          'August', 'September', 'October', 'November', 'December')
