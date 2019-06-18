@@ -98,14 +98,18 @@ class Core(object):
         if profile.isStudent:
             studentTableOrder.append(profile)
             # choose what coordinates to put picture in
-            row = (len(studentTableOrder) - 1) / Constants.STUDENT_TABLE_COLUMNS
-            column = (len(studentTableOrder) - 1) % Constants.STUDENT_TABLE_COLUMNS
+            row = int((len(studentTableOrder) - 1) / Constants.STUDENT_TABLE_COLUMNS)
+            column = int((len(studentTableOrder) - 1) % Constants.STUDENT_TABLE_COLUMNS)
         else:
             mentorTableOrder.append(profile)
             # choose what coordinates to put picture in
-            row = (len(mentorTableOrder) - 1) / Constants.MENTOR_TABLE_COLUMNS
-            column = (len(mentorTableOrder) - 1) % Constants.MENTOR_TABLE_COLUMNS
+            row = int((len(mentorTableOrder) - 1) / Constants.MENTOR_TABLE_COLUMNS)
+            column = int((len(mentorTableOrder) - 1) % Constants.MENTOR_TABLE_COLUMNS)
 
+        # add rows if needed
+        if row >= (backEnd.student_table_rows if profile.isStudent else backEnd.mentor_table_rows):
+            print(str(row) + " " + str(backEnd.mentor_table_rows))
+            backEnd.add_row_student() if profile.isStudent else backEnd.add_row_mentor()
         backEnd.setIDBox(profile.create_groupBox(), profile.isStudent, row, column)
 
     def clearHours(self, ID):
@@ -140,6 +144,10 @@ class Core(object):
         row = int(index / Constants.STUDENT_TABLE_COLUMNS)
         column = int(index % Constants.STUDENT_TABLE_COLUMNS)
         backEnd.removeIDBox(profile.isStudent, row, column)
+
+        # remove unnecessary lines
+        if column is 0 and row >= (Constants.STUDENT_TABLE_ROWS if profile.isStudent else Constants.MENTOR_TABLE_ROWS):
+            backEnd.remove_row_student() if profile.isStudent else backEnd.remove_row_mentor()
 
         # update list to match
         studentTableOrder.remove(profile) if profile.isStudent else mentorTableOrder.remove(profile)

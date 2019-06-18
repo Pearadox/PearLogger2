@@ -9,9 +9,13 @@ from PyQt5.QtWidgets import QGraphicsOpacityEffect
 
 from GUI.GUIPearLog import Ui_mainWindow
 from PearLogger_Core import Core
+from PearLogger_Utils import Constants
 
 # Manages user interaction with GUI, passes on logistics to Core class
 class Ui_backEnd(object):
+
+    student_table_rows = Constants.STUDENT_TABLE_ROWS
+    mentor_table_rows = Constants.MENTOR_TABLE_ROWS
 
     # triggered when hitting enter on login lineEdit
     def signIn_lineEdit_trigger(self):
@@ -72,6 +76,28 @@ class Ui_backEnd(object):
             ui.studentTable.removeCellWidget(row, column)
         else:
             ui.mentorTable.removeCellWidget(row, column)
+
+    # adds 1 row to the end of the student table
+    def add_row_student(self):
+        ui.studentTable.insertRow(self.student_table_rows)
+        ui.studentTable.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.student_table_rows += 1
+
+    # adds 1 row to the end of the mentor table
+    def add_row_mentor(self):
+        ui.mentorTable.insertRow(self.mentor_table_rows)
+        ui.mentorTable.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.mentor_table_rows += 1
+
+    # removes 1 row from the end of the student table
+    def remove_row_student(self):
+        ui.studentTable.removeRow(self.student_table_rows - 1)
+        self.student_table_rows -= 1
+
+    # removes 1 from the end of the mentor table
+    def remove_row_mentor(self):
+        ui.mentorTable.removeRow(self.mentor_table_rows - 1)
+        self.mentor_table_rows -= 1
 
     # show formatted error message under sign-in lineEdit
     def showError_message(self, error_message):
