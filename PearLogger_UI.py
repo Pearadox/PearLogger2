@@ -34,11 +34,11 @@ class Ui_backEnd(object):
 
     # menu button, signs everyone out
     def signOutAll_menu_trigger(self):
-        pass
+        core.signoutAll()
 
     # menu button, signs everyone out without clearing hours
     def clearAll_menu_trigger(self):
-        pass
+        core.clearAll()
 
     # menu button, popup GUI to view everyone's hours
     def viewHours_menu_trigger(self):

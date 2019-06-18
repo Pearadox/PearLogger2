@@ -1,4 +1,5 @@
 # core functionality of PearLogger
+import copy
 import time, datetime
 from PearLogger_DataManager import DataManager
 from PearLogger_Utils import Constants
@@ -110,13 +111,26 @@ class Core(object):
             backEnd.add_row_student() if profile.isStudent else backEnd.add_row_mentor()
         backEnd.setIDBox(profile.create_groupBox(), profile.isStudent, row, column)
 
+    # logs out person, but does not log hours
     def clearHours(self, ID):
         # make sure person is still signed in
         if ID in dm.loggedIn.keys():
+            # log person out, but pass in boolean to NOT log hours
             self.log(ID, False)
 
-    def clearAllHours(self):
-        pass
+    # clear hours for all logged in people
+    def clearAll(self):
+        # get copy of dictionary so keys() dont change
+        dict_copy = copy.deepcopy(dm.loggedIn)
+        for ID in dict_copy.keys():
+            self.clearHours(ID)
+
+    # signs out all logged in peopl
+    def signoutAll(self):
+        # get copy of dictionary so keys() dont change
+        dict_copy = copy.deepcopy(dm.loggedIn)
+        for ID in dict_copy.keys():
+            self.log(ID)
 
     # remove ID box from GUI Table
     def remove_box(self, profile):
