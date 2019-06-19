@@ -3,6 +3,9 @@
 from PyQt5 import QtWidgets, QtGui, QtCore
 
 class Profile(object):
+
+    Constants = Constants
+
     # constants for people categories
     CATEGORY_STUDENT_DAWSON = 1
     CATEGORY_STUDENT_PEARLAND = 2
@@ -16,14 +19,36 @@ class Profile(object):
     NUM_CATEGORIES = 8
 
     CATEGORY__DICTIONARY = {
-        1  : "Student (Dawson)",
-        2  : "Student (Pearland)",
-        3  : "Student (Turner)",
-        11 : "Alumni",
-        12 : "Mentor",
-        13 : "Teacher",
-        21 : "Team",
-        22 : "Other"
+        1: "Student (Dawson)",
+        2: "Student (Pearland)",
+        3: "Student (Turner)",
+        11: "Alumni",
+        12: "Mentor",
+        13: "Teacher",
+        21: "Team",
+        22: "Other"
+    }
+
+    CATEGORY__ID_START_DICTIONARY = {
+        1: Constants.ID_START_STUDENT_DAWSON,
+        2: Constants.ID_START_STUDENT_PEARLAND,
+        3: Constants.ID_START_STUDENT_TURNER,
+        11: Constants.ID_START_ALUMNI,
+        12: Constants.ID_START_MENTOR,
+        13: Constants.ID_START_TEACHER,
+        21: Constants.ID_START_TEAM,
+        22: Constants.ID_START_OTHER
+    }
+
+    CATEGORY__ID_RANGE_DICTIONARY = {
+        1: Constants.ID_RANGE_STUDENT_DAWSON,
+        2: Constants.ID_RANGE_STUDENT_PEARLAND,
+        3: Constants.ID_RANGE_STUDENT_TURNER,
+        11: Constants.ID_RANGE_ALUMNI,
+        12: Constants.ID_RANGE_MENTOR,
+        13: Constants.ID_RANGE_TEACHER,
+        21: Constants.ID_RANGE_TEAM,
+        22: Constants.ID_RANGE_OTHER
     }
 
     ID = ""
@@ -119,3 +144,20 @@ class Constants(object):
 
     MENTOR_TABLE_ROWS = 2
     MENTOR_TABLE_COLUMNS = 9
+
+    ID_START_STUDENT_DAWSON = 1000
+    ID_RANGE_STUDENT_DAWSON = 999
+    ID_START_STUDENT_PEARLAND = 2000
+    ID_RANGE_STUDENT_PEARLAND = 999
+    ID_START_STUDENT_TURNER = 3000
+    ID_RANGE_STUDENT_TURNER = 999
+    ID_START_ALUMNI = 500
+    ID_RANGE_ALUMNI = 499
+    ID_START_MENTOR = 100
+    ID_RANGE_MENTOR = 99
+    ID_START_TEACHER = 200
+    ID_RANGE_TEACHER = 99
+    ID_START_TEAM = 300
+    ID_RANGE_TEAM = 99
+    ID_START_OTHER = 4000
+    ID_RANGE_OTHER = 999

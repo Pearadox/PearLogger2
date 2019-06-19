@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/PearLogger_Utils.py" line="93" />
+    <bookmark url="file://$PROJECT_DIR$/PearLogger_Utils.py" line="118" />
     <bookmark url="file://$PROJECT_DIR$/PearLogger_UI.py" line="139" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e62f077-6b3f-4683-862a-ee6cbb313dd3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/PearLogger_AddPerson_UI.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todo.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/AddPersonDialog.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/AddPersonDialog.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/GUIAddPersonDialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/GUIAddPersonDialog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PearLogger_Core.py" beforeDir="false" afterPath="$PROJECT_DIR$/PearLogger_Core.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PearLogger_DataManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/PearLogger_DataManager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PearLogger_UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/PearLogger_UI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PearLogger_Utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/PearLogger_Utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/log.pear" beforeDir="false" afterPath="$PROJECT_DIR$/data/log.pear" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/people.pear" beforeDir="false" afterPath="$PROJECT_DIR$/data/people.pear" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,18 +17,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PearLogger_UI.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="158" column="52" selection-start-line="158" selection-start-column="52" selection-end-line="158" selection-end-column="52" />
-              <folding>
-                <element signature="e#26#68#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PearLogger_Main.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -68,32 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/todo.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="41" selection-start-column="41" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PearLogger_AddPerson_UI.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="69" column="22" lean-forward="true" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
-              <folding>
-                <element signature="e#26#68#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PearLogger_DataManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="73" column="8" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="8" />
+            <state relative-caret-position="306">
+              <caret line="84" column="29" lean-forward="true" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
               <folding>
                 <element signature="e#58#69#0" expanded="true" />
               </folding>
@@ -109,15 +67,6 @@
               <folding>
                 <element signature="e#204#246#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PearLogger_Utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -166,19 +115,19 @@
         <option value="$PROJECT_DIR$/data/log.pear" />
         <option value="$PROJECT_DIR$/GUI/ui2py.bat" />
         <option value="$PROJECT_DIR$/PearLogger_Main.py" />
-        <option value="$PROJECT_DIR$/PearLogger_Utils.py" />
         <option value="$PROJECT_DIR$/GUI/GUIAddPersonDialog.py" />
         <option value="$PROJECT_DIR$/data/people.pear" />
         <option value="$PROJECT_DIR$/PearLogger_UI.py" />
         <option value="$PROJECT_DIR$/PearLogger_AddPerson_UI.py" />
         <option value="$PROJECT_DIR$/todo.txt" />
         <option value="$PROJECT_DIR$/PearLogger_Core.py" />
+        <option value="$PROJECT_DIR$/PearLogger_Utils.py" />
         <option value="$PROJECT_DIR$/PearLogger_DataManager.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1137" />
+    <option name="x" value="-922" />
     <option name="y" value="43" />
     <option name="width" value="967" />
     <option name="height" value="835" />
@@ -467,27 +416,20 @@
     <entry file="file://$PROJECT_DIR$/data/loggedIn.pear">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/PearLogger_Utils.py">
+    <entry file="file://$PROJECT_DIR$/PearLogger_AddPerson_UI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/GUIAddPersonDialog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="79" column="38" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
+        <state relative-caret-position="459">
+          <caret line="69" column="22" lean-forward="true" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
           <folding>
-            <element signature="e#204#246#0" expanded="true" />
+            <element signature="e#26#68#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PearLogger_UI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="158" column="52" selection-start-line="158" selection-start-column="52" selection-end-line="158" selection-end-column="52" />
+        <state relative-caret-position="-6">
+          <caret line="137" column="44" lean-forward="true" selection-start-line="137" selection-start-column="44" selection-end-line="137" selection-end-column="44" />
           <folding>
             <element signature="e#26#68#0" expanded="true" />
           </folding>
@@ -498,26 +440,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PearLogger_Core.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="200" column="15" lean-forward="true" selection-start-line="200" selection-start-column="15" selection-end-line="200" selection-end-column="15" />
-          <folding>
-            <element signature="e#35#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PearLogger_AddPerson_UI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="69" column="22" lean-forward="true" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
-          <folding>
-            <element signature="e#26#68#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -535,10 +457,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PearLogger_Core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="200" column="15" lean-forward="true" selection-start-line="200" selection-start-column="15" selection-end-line="200" selection-end-column="15" />
+          <folding>
+            <element signature="e#35#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PearLogger_Utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/GUIAddPersonDialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="79" column="38" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
+          <folding>
+            <element signature="e#204#246#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PearLogger_DataManager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="73" column="8" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="8" />
+        <state relative-caret-position="306">
+          <caret line="84" column="29" lean-forward="true" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
           <folding>
             <element signature="e#58#69#0" expanded="true" />
           </folding>

@@ -3,7 +3,7 @@ import time
 from pathlib import Path
 import re
 
-from PearLogger_Utils import Profile, LogEntry
+from PearLogger_Utils import Profile, LogEntry, Constants
 
 
 class DataManager(object):
@@ -69,9 +69,20 @@ class DataManager(object):
         print("Loaded data/people.pear")
 
     def appendDirectory(self, ID, name, picture_path, category):
+        with open("data/people.pear", "a") as peopleFile:
+            peopleFile.write(ID + ";" + name + ";" + picture_path + ";" + str(category) + "\n")
+            peopleFile.close()
+
+        print("Appended data/people.pear")
 
     def addPerson(self, name, category, picture_path):
-
+        # loop from id start to id end of category
+        for new_ID in range(Profile.CATEGORY__ID_START_DICTIONARY[category],
+                            Profile.CATEGORY__ID_START_DICTIONARY[category]
+                            + Profile.CATEGORY__ID_RANGE_DICTIONARY[category]):
+            # make sure ID is unused
+            if not new_ID in self.peopleDict.keys():
+                print(new_ID)
         # self.appendDirectory()
         pass
 
