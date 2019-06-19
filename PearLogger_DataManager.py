@@ -1,5 +1,5 @@
 # files and data structures are accessed here by the core
-
+import time
 from pathlib import Path
 import re
 
@@ -12,6 +12,8 @@ class DataManager(object):
     log = list()  # list of logEntry objects
     loggedTime = dict()  # k: ID number  v: total logged time (seconds)
     loggedIn = dict()  # k: ID number  v: login time (epoch)
+
+    latest_known_time = 0
 
     def initialize(self):
         self.readPeople()
@@ -92,6 +94,8 @@ class DataManager(object):
                     login_time = int(str.strip(delimited[1]))
                     logout_time = int(str.strip(delimited[2]))
 
+                    self.latest_known_time = max(logout_time, self.latest_known_time)
+
                     # record the data
                     self.log.append(LogEntry(ID, login_time, logout_time))
 
@@ -139,6 +143,8 @@ class DataManager(object):
                     delimited = re.split(';', raw)
                     ID = str.strip(delimited[0])
                     login_time = int(str.strip(delimited[1]))
+
+                    self.latest_known_time = max(login_time, self.latest_known_time)
 
                     # check for login duplicates
                     if ID in self.loggedIn.keys():

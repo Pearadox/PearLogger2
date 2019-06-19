@@ -96,6 +96,15 @@ class Ui_backEnd(object):
         self.mentor_table_rows -= 1
 
     # show formatted error message under sign-in lineEdit
+    def showError_popup(self, title, message):
+        msg = QtWidgets.QMessageBox()
+        msg.setIcon(QtWidgets.QMessageBox.Critical)  # set the icon of the prompt
+        msg.setWindowTitle(title)
+        msg.setText(message)
+        # msg.resize()
+        msg.setStandardButtons(QtWidgets.QMessageBox.Ok)  # set the buttons available on the prompt
+        msg.exec()
+
     def showError_message(self, error_message):
         # red-colored text, set label to message
         ui.errorLabel.setText("<html><hea   d/><body><p><span style=\" color:#dc0000;\">"+error_message+"</span></p></body></html>")
@@ -109,16 +118,7 @@ class Ui_backEnd(object):
         self.animation.setStartValue(1)
         self.animation.setEndValue(0)
         self.animation.start()
-
     # makes a prompt window with an Error icon
-    def showError_popup(title, message):
-        msg = QtWidgets.QMessageBox()
-        msg.setIcon(QtWidgets.QMessageBox.Critical)  # set the icon of the prompt
-        msg.setWindowTitle(title)
-        msg.setText(message)
-        msg.resize()
-        msg.setStandardButtons(QtWidgets.QMessageBox.Ok)  # set the buttons available on the prompt
-        msg.exec()
 
     # makes a prompt window with a Information icon
     def showInfo_popup(title, message):
@@ -155,6 +155,19 @@ class Ui_backEnd(object):
 
 class Ui_frontEnd(object):
 
+    def post_initialization_tasks(self):
+        # initialize ID Boxes, must be done after app object created for some stupid reason
+        core.initialize_IDBoxes()
+
+        # initialize previous logins
+        core.initialize_previous_logins()
+
+        # update leaderboard
+        core.updateLeaderboard()
+
+        # check for bad system time change
+        core.check_bad_time_change()
+
     # constructor, initialize UI
     def __init__(self):
         import sys
@@ -166,14 +179,7 @@ class Ui_frontEnd(object):
 
         self.customConfiguration()
 
-        # initialize ID Boxes, must be done after app object created for some stupid reason
-        core.initialize_IDBoxes()
-
-        # initialize previous logins
-        core.initialize_previous_logins()
-
-        # update leaderboard
-        core.updateLeaderboard()
+        self.post_initialization_tasks()
 
         sys.exit(app.exec_())
 

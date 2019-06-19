@@ -197,6 +197,15 @@ class Core(object):
             # increase rank by 1 for next loop
             rank += 1
 
+    def check_bad_time_change(self):
+        # check for bad time change
+        if dm.latest_known_time > time.time():
+            from PearLogger_UI import backEnd
+            message = "Current time (" + str(int(time.time())) + \
+                      ") is earlier than latest time (" + str(dm.latest_known_time) + ")!"
+            print(message)
+            backEnd.showError_popup("Time Change Error", message)
+
     def showErrorMessage(self, message):
         from PearLogger_UI import showErrorMessage_caller
         showErrorMessage_caller(message)
