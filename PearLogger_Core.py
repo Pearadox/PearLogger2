@@ -192,6 +192,7 @@ class Core(object):
                 top_time = hours
 
             # send values to leaderboard backend
+            print(str(rank) + " " + profile.name + " " + str(hours) + " " + str(top_time))
             backEnd.setLeaderboard(rank, profile.name, hours, top_time)
 
             # increase rank by 1 for next loop

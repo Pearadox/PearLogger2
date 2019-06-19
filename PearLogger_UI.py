@@ -134,8 +134,8 @@ class Ui_backEnd(object):
         widgets = self.get_leaderboard_widgets(rank)
         widgets[0].setText(name)
         widgets[1].setText(str(round(time, 1)))
-        widgets[2].setMaximum(maxTime)
-        widgets[2].setValue(time)
+        widgets[2].setMaximum(maxTime*10000)
+        widgets[2].setValue(time*10000)
 
     # returns leaderboard widgets tuple given a rank ([0]=name label, [1]=time label, [2]=time progress bar)
     def get_leaderboard_widgets(self, rank):

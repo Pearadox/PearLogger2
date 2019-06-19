@@ -572,7 +572,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(255, 255, 255, 10) }</string>
+     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(0, 0, 0, 0) }</string>
     </property>
     <property name="text">
      <string/>
@@ -785,7 +785,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(255, 255, 255, 10) }</string>
+     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(0, 0, 0, 0) }</string>
     </property>
     <property name="text">
      <string/>
@@ -809,7 +809,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(255, 255, 255, 10) }</string>
+     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(0, 0, 0, 0) }</string>
     </property>
     <property name="text">
      <string/>
@@ -833,7 +833,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(255, 255, 255, 10) }</string>
+     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(0, 0, 0, 0) }</string>
     </property>
     <property name="text">
      <string/>
@@ -857,7 +857,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(255, 255, 255, 10) }</string>
+     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(0, 0, 0, 0) }</string>
     </property>
     <property name="text">
      <string/>
@@ -881,7 +881,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(255, 255, 255, 10) }</string>
+     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(0, 0, 0, 0) }</string>
     </property>
     <property name="text">
      <string/>
@@ -905,7 +905,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(255, 255, 255, 10) }</string>
+     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(0, 0, 0, 0) }</string>
     </property>
     <property name="text">
      <string/>
@@ -929,7 +929,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(255, 255, 255, 10) }</string>
+     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(0, 0, 0, 0) }</string>
     </property>
     <property name="text">
      <string/>
@@ -953,7 +953,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(255, 255, 255, 10) }</string>
+     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(0, 0, 0, 0) }</string>
     </property>
     <property name="text">
      <string/>
@@ -977,7 +977,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(255, 255, 255, 10) }</string>
+     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(0, 0, 0, 0) }</string>
     </property>
     <property name="text">
      <string/>
@@ -1001,7 +1001,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(255, 255, 255, 10) }</string>
+     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(0, 0, 0, 0) }</string>
     </property>
     <property name="text">
      <string/>
@@ -1028,7 +1028,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(255, 255, 255, 10) }</string>
+     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(0, 0, 0, 0) }</string>
     </property>
     <property name="text">
      <string/>
@@ -1055,7 +1055,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(255, 255, 255, 10) }</string>
+     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(0, 0, 0, 0) }</string>
     </property>
     <property name="text">
      <string/>
@@ -1082,7 +1082,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(255, 255, 255, 10) }</string>
+     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(0, 0, 0, 0) }</string>
     </property>
     <property name="text">
      <string/>
@@ -1109,7 +1109,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(255, 255, 255, 10) }</string>
+     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(0, 0, 0, 0) }</string>
     </property>
     <property name="text">
      <string/>
@@ -1136,7 +1136,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(255, 255, 255, 10) }</string>
+     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(0, 0, 0, 0) }</string>
     </property>
     <property name="text">
      <string/>
@@ -1163,7 +1163,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(255, 255, 255, 10) }</string>
+     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(0, 0, 0, 0) }</string>
     </property>
     <property name="text">
      <string/>
@@ -1190,8 +1190,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(255, 255, 255, 10) }
-</string>
+     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(0, 0, 0, 0) }</string>
     </property>
     <property name="text">
      <string/>
@@ -1218,7 +1217,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(255, 255, 255, 10) }</string>
+     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(0, 0, 0, 0) }</string>
     </property>
     <property name="text">
      <string/>
@@ -1245,7 +1244,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(255, 255, 255, 10) }</string>
+     <string notr="true">QLabel { color: rgb(6,175,6); background-color: rgba(0, 0, 0, 0) }</string>
     </property>
     <property name="text">
      <string/>
