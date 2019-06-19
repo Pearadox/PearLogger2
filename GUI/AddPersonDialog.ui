@@ -129,7 +129,7 @@
     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="name_label_3">
+  <widget class="QLabel" name="picture_label">
    <property name="geometry">
     <rect>
      <x>100</x>
@@ -153,7 +153,7 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="name_lineEdit">
    <property name="geometry">
     <rect>
      <x>100</x>
@@ -172,7 +172,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox">
+  <widget class="QComboBox" name="category_comboBox">
    <property name="geometry">
     <rect>
      <x>100</x>
@@ -188,7 +188,7 @@
     </font>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="add_person_button">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -199,7 +199,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
+     <pointsize>10</pointsize>
     </font>
    </property>
    <property name="text">

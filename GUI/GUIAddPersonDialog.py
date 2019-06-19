@@ -8,6 +8,9 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+from PearLogger_Utils import Profile
+
+
 class Ui_AddPersonDialog(object):
     def setupUi(self, AddPersonDialog):
         AddPersonDialog.setObjectName("AddPersonDialog")
@@ -58,37 +61,37 @@ class Ui_AddPersonDialog(object):
         self.name_label_2.setFont(font)
         self.name_label_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.name_label_2.setObjectName("name_label_2")
-        self.name_label_3 = QtWidgets.QLabel(AddPersonDialog)
-        self.name_label_3.setGeometry(QtCore.QRect(100, 130, 151, 21))
+        self.picture_label = QtWidgets.QLabel(AddPersonDialog)
+        self.picture_label.setGeometry(QtCore.QRect(100, 130, 151, 21))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Symbol")
         font.setPointSize(11)
         font.setBold(True)
         font.setWeight(75)
-        self.name_label_3.setFont(font)
-        self.name_label_3.setAlignment(QtCore.Qt.AlignCenter)
-        self.name_label_3.setObjectName("name_label_3")
-        self.lineEdit = QtWidgets.QLineEdit(AddPersonDialog)
-        self.lineEdit.setGeometry(QtCore.QRect(100, 30, 231, 31))
+        self.picture_label.setFont(font)
+        self.picture_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.picture_label.setObjectName("picture_label")
+        self.name_lineEdit = QtWidgets.QLineEdit(AddPersonDialog)
+        self.name_lineEdit.setGeometry(QtCore.QRect(100, 30, 231, 31))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Symbol")
         font.setPointSize(10)
-        self.lineEdit.setFont(font)
-        self.lineEdit.setText("")
-        self.lineEdit.setObjectName("lineEdit")
-        self.comboBox = QtWidgets.QComboBox(AddPersonDialog)
-        self.comboBox.setGeometry(QtCore.QRect(100, 71, 231, 31))
+        self.name_lineEdit.setFont(font)
+        self.name_lineEdit.setText("")
+        self.name_lineEdit.setObjectName("name_lineEdit")
+        self.category_comboBox = QtWidgets.QComboBox(AddPersonDialog)
+        self.category_comboBox.setGeometry(QtCore.QRect(100, 71, 231, 31))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Symbol")
         font.setPointSize(10)
-        self.comboBox.setFont(font)
-        self.comboBox.setObjectName("comboBox")
-        self.pushButton = QtWidgets.QPushButton(AddPersonDialog)
-        self.pushButton.setGeometry(QtCore.QRect(40, 390, 271, 51))
+        self.category_comboBox.setFont(font)
+        self.category_comboBox.setObjectName("category_comboBox")
+        self.add_person_button = QtWidgets.QPushButton(AddPersonDialog)
+        self.add_person_button.setGeometry(QtCore.QRect(40, 390, 271, 51))
         font = QtGui.QFont()
-        font.setPointSize(15)
-        self.pushButton.setFont(font)
-        self.pushButton.setObjectName("pushButton")
+        font.setPointSize(10)
+        self.add_person_button.setFont(font)
+        self.add_person_button.setObjectName("add_person_button")
 
         self.retranslateUi(AddPersonDialog)
         QtCore.QMetaObject.connectSlotsByName(AddPersonDialog)
@@ -100,8 +103,8 @@ class Ui_AddPersonDialog(object):
         self.preview_button.setText(_translate("AddPersonDialog", "Preview"))
         self.name_label.setText(_translate("AddPersonDialog", "Name"))
         self.name_label_2.setText(_translate("AddPersonDialog", "Category"))
-        self.name_label_3.setText(_translate("AddPersonDialog", "Picture"))
-        self.pushButton.setText(_translate("AddPersonDialog", "Add Person"))
+        self.picture_label.setText(_translate("AddPersonDialog", "Picture"))
+        self.add_person_button.setText(_translate("AddPersonDialog", "Add Person"))
 
 
 if __name__ == "__main__":

@@ -61,12 +61,19 @@ class DataManager(object):
                             "ERROR: Duplicate IDs in people file (#" + ID + ") (data/people.pear, line " + str(
                                 lineCount) + ")")
                         continue
-
                     # record the data
                     self.peopleDict[ID] = Profile(ID, name, str(picture_path), category)
-                except:
+                except Exception as e:
+                    print(e)
                     print("ERROR: Parsing error in people file (data/people.pear, line " + str(lineCount) + ")")
         print("Loaded data/people.pear")
+
+    def appendDirectory(self, ID, name, picture_path, category):
+
+    def addPerson(self, name, category, picture_path):
+
+        # self.appendDirectory()
+        pass
 
     # reads in log file
     def readLog(self):

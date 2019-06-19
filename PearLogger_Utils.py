@@ -4,12 +4,27 @@ from PyQt5 import QtWidgets, QtGui, QtCore
 
 class Profile(object):
     # constants for people categories
-    CATEGORY_STUDENT = 0
-    CATEGORY_ALUMNI = 1
-    CATEGORY_MENTOR = 2
-    CATEGORY_TEACHER = 3
-    CATEGORY_TEAM = 4
-    CATEGORY_OTHER = 5
+    CATEGORY_STUDENT_DAWSON = 1
+    CATEGORY_STUDENT_PEARLAND = 2
+    CATEGORY_STUDENT_TURNER = 3
+    CATEGORY_ALUMNI = 11
+    CATEGORY_MENTOR = 12
+    CATEGORY_TEACHER = 13
+    CATEGORY_TEAM = 21
+    CATEGORY_OTHER = 22
+
+    NUM_CATEGORIES = 8
+
+    CATEGORY__DICTIONARY = {
+        1  : "Student (Dawson)",
+        2  : "Student (Pearland)",
+        3  : "Student (Turner)",
+        11 : "Alumni",
+        12 : "Mentor",
+        13 : "Teacher",
+        21 : "Team",
+        22 : "Other"
+    }
 
     ID = ""
     name = ""
@@ -23,7 +38,9 @@ class Profile(object):
         self.name = name
         self.picture_path = picture_path
         self.category = category
-        self.isStudent = category == self.CATEGORY_STUDENT
+        self.isStudent = category == self.CATEGORY_STUDENT_DAWSON \
+                         or category == self.CATEGORY_STUDENT_PEARLAND \
+                         or category == self.CATEGORY_STUDENT_TURNER
 
     def create_groupBox(self):
         try:
@@ -75,7 +92,7 @@ class Profile(object):
         picture_label = QtWidgets.QLabel()
 
         # set maximum size of picture label for reference
-        picture_label.setMaximumSize(150, 150)
+        picture_label.setMaximumSize(140, 140)
 
         # create pixmap
         pixmap_raw = QtGui.QPixmap(self.picture_path)

@@ -6,6 +6,7 @@ from PyQt5.QtWidgets import QGraphicsOpacityEffect
 from GUI.GUIPearLog import Ui_mainWindow
 from PearLogger_Core import Core
 from PearLogger_Utils import Constants
+from PearLogger_AddPerson_UI import Add_Person_Ui_frontEnd
 
 # Manages user interaction with GUI, passes on logistics to Core class
 class Ui_backEnd(object):
@@ -58,7 +59,7 @@ class Ui_backEnd(object):
 
     # menu button, pop GUI to add person
     def addPerson_menu_trigger(self):
-        pass
+        self.show_addPerson_dialog()
 
     # creates ID box with name, picture, and ID in table
     def setIDBox(self, groupBox, isStudent, row, column):
@@ -107,7 +108,7 @@ class Ui_backEnd(object):
 
     def showError_message(self, error_message):
         # red-colored text, set label to message
-        ui.errorLabel.setText("<html><hea   d/><body><p><span style=\" color:#dc0000;\">"+error_message+"</span></p></body></html>")
+        ui.errorLabel.setText("<html><head/><body><p><span style=\" color:#dc0000;\">"+error_message+"</span></p></body></html>")
 
         # add fading animation
         self.effect = QGraphicsOpacityEffect()
@@ -151,6 +152,11 @@ class Ui_backEnd(object):
             9: (ui.name_label_rank_9, ui.time_label_rank_9, ui.bar_rank_9),
             10: (ui.name_label_rank_10, ui.time_label_rank_10, ui.bar_rank_10)
         }.get(rank)
+
+    def show_addPerson_dialog(self):
+        print("Showing Add Person Dialog")
+        add_person_ui = Add_Person_Ui_frontEnd()
+        add_person_ui.initialize(add_person_ui, core)
 
 
 class Ui_frontEnd(object):
