@@ -2,9 +2,34 @@
 
 from PyQt5 import QtWidgets, QtGui, QtCore
 
-class Profile(object):
 
-    Constants = Constants
+class Constants(object):
+
+    STUDENT_TABLE_ROWS = 4
+    STUDENT_TABLE_COLUMNS = 9
+
+    MENTOR_TABLE_ROWS = 2
+    MENTOR_TABLE_COLUMNS = 9
+
+    ID_START_STUDENT_DAWSON = 1000
+    ID_RANGE_STUDENT_DAWSON = 1000
+    ID_START_STUDENT_PEARLAND = 2000
+    ID_RANGE_STUDENT_PEARLAND = 1000
+    ID_START_STUDENT_TURNER = 3000
+    ID_RANGE_STUDENT_TURNER = 1000
+    ID_START_ALUMNI = 500
+    ID_RANGE_ALUMNI = 500
+    ID_START_MENTOR = 100
+    ID_RANGE_MENTOR = 100
+    ID_START_TEACHER = 200
+    ID_RANGE_TEACHER = 100
+    ID_START_TEAM = 300
+    ID_RANGE_TEAM = 100
+    ID_START_OTHER = 4000
+    ID_RANGE_OTHER = 1000
+
+
+class Profile(object):
 
     # constants for people categories
     CATEGORY_STUDENT_DAWSON = 1
@@ -135,29 +160,3 @@ class LogEntry(object):
         self.ID = ID
         self.login_time = login_time
         self.logout_time = logout_time
-
-
-class Constants(object):
-
-    STUDENT_TABLE_ROWS = 4
-    STUDENT_TABLE_COLUMNS = 9
-
-    MENTOR_TABLE_ROWS = 2
-    MENTOR_TABLE_COLUMNS = 9
-
-    ID_START_STUDENT_DAWSON = 1000
-    ID_RANGE_STUDENT_DAWSON = 999
-    ID_START_STUDENT_PEARLAND = 2000
-    ID_RANGE_STUDENT_PEARLAND = 999
-    ID_START_STUDENT_TURNER = 3000
-    ID_RANGE_STUDENT_TURNER = 999
-    ID_START_ALUMNI = 500
-    ID_RANGE_ALUMNI = 499
-    ID_START_MENTOR = 100
-    ID_RANGE_MENTOR = 99
-    ID_START_TEACHER = 200
-    ID_RANGE_TEACHER = 99
-    ID_START_TEAM = 300
-    ID_RANGE_TEAM = 99
-    ID_START_OTHER = 4000
-    ID_RANGE_OTHER = 999
