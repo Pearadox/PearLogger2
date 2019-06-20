@@ -34,7 +34,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>PearLogger</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -1283,21 +1283,14 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionGenerate_Report"/>
+    <addaction name="actionOptions"/>
     <addaction name="separator"/>
-    <addaction name="actionReload_Data"/>
-   </widget>
-   <widget class="QMenu" name="menuOptions">
-    <property name="title">
-     <string>Options</string>
-    </property>
-    <addaction name="actionChange_Rules"/>
+    <addaction name="actionGenerate_Report"/>
     <addaction name="separator"/>
     <addaction name="actionExit_Fullscreen"/>
     <addaction name="actionFullscreen"/>
    </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuOptions"/>
    <addaction name="menuActions"/>
    <addaction name="menuPeople"/>
   </widget>
@@ -1310,11 +1303,6 @@
   <action name="actionGenerate_Report">
    <property name="text">
     <string>Generate Report</string>
-   </property>
-  </action>
-  <action name="actionReload_Data">
-   <property name="text">
-    <string>Reload Data</string>
    </property>
   </action>
   <action name="actionAdd_Person">
@@ -1347,9 +1335,9 @@
     <string>Exit Fullscreen</string>
    </property>
   </action>
-  <action name="actionChange_Rules">
+  <action name="actionOptions">
    <property name="text">
-    <string>Change Rules</string>
+    <string>Options</string>
    </property>
   </action>
  </widget>

@@ -50,11 +50,7 @@ class Ui_backEnd(object):
         pass
 
     # menu button, popup GUI to change options
-    def changeRules_menu_trigger(self):
-        pass
-
-    # menu button, reloads data read from files
-    def reloadData_menu_trigger(self):
+    def options_menu_trigger(self):
         pass
 
     # menu button, pop GUI to add person
@@ -212,10 +208,9 @@ class Ui_frontEnd(object):
         ui.actionClear_All.triggered.connect(backEnd.clearAll_menu_trigger)
         ui.actionView_Hours.triggered.connect(backEnd.viewHours_menu_trigger)
         ui.actionGenerate_Report.triggered.connect(backEnd.generateReport_menu_trigger)
-        ui.actionChange_Rules.triggered.connect(backEnd.changeRules_menu_trigger)
+        ui.actionOptions.triggered.connect(backEnd.options_menu_trigger)
         ui.actionExit_Fullscreen.triggered.connect(self.show_windowed)
         ui.actionFullscreen.triggered.connect(self.show_fullscreen)
-        ui.actionReload_Data.triggered.connect(backEnd.reloadData_menu_trigger)
         ui.actionAdd_Person.triggered.connect(backEnd.addPerson_menu_trigger)
 
     def window_keypress_event(self, event):

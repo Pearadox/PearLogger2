@@ -8,9 +8,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-from PearLogger_Utils import Profile
-
-
 class Ui_AddPersonDialog(object):
     def setupUi(self, AddPersonDialog):
         AddPersonDialog.setObjectName("AddPersonDialog")
