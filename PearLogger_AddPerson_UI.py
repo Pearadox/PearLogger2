@@ -35,7 +35,8 @@ class Add_Person_Ui_backEnd(object):
             frontEnd.ui.picture_file_line_edit.setText(filename)
         except Exception as e:
             print(e)
-            print("Error with Picture")
+            main_backEnd.showError_popup(
+                "Profile Picture Location Error", "Please move the picture under data/profilepics/ and try again")
 
     def preview_button_trigger(self):
         # set preview of label using lineedit
@@ -46,7 +47,7 @@ class Add_Person_Ui_backEnd(object):
         incompleteForm = False
 
         # get name
-        person_name = frontEnd.ui.name_lineEdit.text()
+        person_name = str.strip(frontEnd.ui.name_lineEdit.text())
         # make sure name is filled
         incompleteForm |= len(person_name) is 0
 
@@ -63,7 +64,7 @@ class Add_Person_Ui_backEnd(object):
         incompleteForm |= category_number is -1
 
         # get picture name
-        picture_filename = self.picture_filename
+        picture_filename = str.strip(frontEnd.ui.picture_file_line_edit.text())
 
         # only add if form is complete
         if not incompleteForm:
@@ -74,9 +75,18 @@ class Add_Person_Ui_backEnd(object):
             main_backEnd.showError_popup("Incomplete Form","Name and Category must be filled in.")
 
     def clearAllFields(self):
+        self.setPreview('data/profilepics/default.jpg')
+        frontEnd.ui.name_lineEdit.setText("")
+        frontEnd.ui.picture_file_line_edit.setText("")
+        frontEnd.ui.category_comboBox.setCurrentIndex(0)
         pass
 
     def setPreview(self, picture_path):
+        print(picture_path)
+        # default picture if path is incomplete
+        if picture_path == 'data/profilepics/':
+            picture_path = 'data/profilepics/default.jpg'
+
         #  add picture preview
         pixmap_raw = QtGui.QPixmap(picture_path)
         pixmap_scaled = pixmap_raw.scaled(frontEnd.ui.preview_label.size(), QtCore.Qt.KeepAspectRatio)
@@ -93,6 +103,7 @@ class Add_Person_Ui_frontEnd(object):
         backEnd.initialize()
 
         self.ui.category_comboBox.addItem("")
+
         for category_name in Profile.CATEGORY__DICTIONARY.values():
             self.ui.category_comboBox.addItem(category_name)
 

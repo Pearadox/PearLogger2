@@ -122,7 +122,7 @@ class Ui_backEnd(object):
         msg.exec()
 
     # makes a prompt window with a Information icon
-    def showInfo_popup(title, message):
+    def showInfo_popup(self, title, message):
         msg = QtWidgets.QMessageBox()
         msg.setIcon(QtWidgets.QMessageBox.Information)  # set the icon of the prompt
         msg.setWindowTitle(title)

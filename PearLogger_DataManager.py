@@ -13,6 +13,8 @@ class DataManager(object):
     loggedTime = dict()  # k: ID number  v: total logged time (seconds)
     loggedIn = dict()  # k: ID number  v: login time (epoch)
 
+    newIDs = list()  # list of newly added IDs, prevents ID reuse
+
     latest_known_time = 0
 
     def initialize(self):
@@ -62,7 +64,6 @@ class DataManager(object):
                                 lineCount) + ")")
                         continue
                     # record the data
-                    print(ID + " "+ str(picture_path))
                     self.peopleDict[ID] = Profile(ID, name, str(picture_path), category)
                 except Exception as e:
                     print(e)
@@ -84,15 +85,18 @@ class DataManager(object):
                                 Profile.CATEGORY__ID_START_DICTIONARY[category]
                                 + Profile.CATEGORY__ID_RANGE_DICTIONARY[category]):
                 # make sure ID is unused
-                if str(new_ID) not in self.peopleDict.keys():
-                    print(new_ID)
+                if (str(new_ID) not in self.peopleDict.keys()) and (new_ID not in self.newIDs):
+                    # add to list since new IDs aren't added to the directory dictionary
+                    self.newIDs.append(new_ID)
                     break
+
+            print("Adding " + name + " (" + str(new_ID) + ") to people file")
 
             # add to directory file
             self.appendDirectory(str(new_ID), name, picture_path, category)
 
             #
-            initialized_main_backEnd.showInfo_popup("Profile Created", name + " (ID #" + str(new_ID) + ") has been added to the directory.")
+            initialized_main_backEnd.showInfo_popup("Profile Created", (name + " (ID #" + str(new_ID) + ") has been added to the directory."))
         except Exception as e:
             print(e)
 
