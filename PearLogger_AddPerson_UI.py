@@ -67,10 +67,11 @@ class Add_Person_Ui_backEnd(object):
 
         # only add if form is complete
         if not incompleteForm:
-            core.add_person(person_name, category_number, picture_filename)
+            core.add_person(person_name, category_number, picture_filename, main_backEnd)
             self.clearAllFields()
         else:
             print("Incomplete form")
+            main_backEnd.showError_popup("Incomplete Form","Name and Category must be filled in.")
 
     def clearAllFields(self):
         pass
@@ -96,10 +97,11 @@ class Add_Person_Ui_frontEnd(object):
             self.ui.category_comboBox.addItem(category_name)
 
     # constructor, initialize UI
-    def initialize(self, add_person_ui, initialized_core):
-        global frontEnd, core
+    def initialize(self, add_person_ui, initialized_core, initialized_main_backEnd):
+        global frontEnd, core, main_backEnd
         frontEnd = add_person_ui
         core = initialized_core
+        main_backEnd = initialized_main_backEnd
 
         self.AddPersonDialog = QtWidgets.QDialog(None, QtCore.Qt.WindowSystemMenuHint | QtCore.Qt.WindowTitleHint
                                             | QtCore.Qt.WindowCloseButtonHint)
@@ -118,6 +120,8 @@ class Add_Person_Ui_frontEnd(object):
         self.ui.preview_button.pressed.connect(backEnd.preview_button_trigger)
         self.ui.add_person_button.pressed.connect(backEnd.addPerson_button_trigger)
 
+
+main_backEnd = None
 frontEnd = None
 core = None
 backEnd = Add_Person_Ui_backEnd()

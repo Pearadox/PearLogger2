@@ -62,6 +62,7 @@ class DataManager(object):
                                 lineCount) + ")")
                         continue
                     # record the data
+                    print(ID + " "+ str(picture_path))
                     self.peopleDict[ID] = Profile(ID, name, str(picture_path), category)
                 except Exception as e:
                     print(e)
@@ -75,7 +76,7 @@ class DataManager(object):
 
         print("Appended data/people.pear")
 
-    def addPerson(self, name, category, picture_path):
+    def addPerson(self, name, category, picture_path, initialized_main_backEnd):
         try:
             # find an ID, loop from id start to id end of category
             new_ID = int()
@@ -83,21 +84,17 @@ class DataManager(object):
                                 Profile.CATEGORY__ID_START_DICTIONARY[category]
                                 + Profile.CATEGORY__ID_RANGE_DICTIONARY[category]):
                 # make sure ID is unused
-                if new_ID not in self.peopleDict.keys():
+                if str(new_ID) not in self.peopleDict.keys():
                     print(new_ID)
                     break
 
             # add to directory file
             self.appendDirectory(str(new_ID), name, picture_path, category)
 
-            # reload directory file
-            self.reloadDirectory()
+            #
+            initialized_main_backEnd.showInfo_popup("Profile Created", name + " (ID #" + str(new_ID) + ") has been added to the directory.")
         except Exception as e:
             print(e)
-
-    def reloadDirectory(self):
-        self.peopleDict.clear()
-        self.readPeople()
 
     # reads in log file
     def readLog(self):

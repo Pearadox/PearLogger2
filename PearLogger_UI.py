@@ -97,15 +97,6 @@ class Ui_backEnd(object):
         self.mentor_table_rows -= 1
 
     # show formatted error message under sign-in lineEdit
-    def showError_popup(self, title, message):
-        msg = QtWidgets.QMessageBox()
-        msg.setIcon(QtWidgets.QMessageBox.Critical)  # set the icon of the prompt
-        msg.setWindowTitle(title)
-        msg.setText(message)
-        # msg.resize()
-        msg.setStandardButtons(QtWidgets.QMessageBox.Ok)  # set the buttons available on the prompt
-        msg.exec()
-
     def showError_message(self, error_message):
         # red-colored text, set label to message
         ui.errorLabel.setText("<html><head/><body><p><span style=\" color:#dc0000;\">"+error_message+"</span></p></body></html>")
@@ -119,7 +110,16 @@ class Ui_backEnd(object):
         self.animation.setStartValue(1)
         self.animation.setEndValue(0)
         self.animation.start()
+
     # makes a prompt window with an Error icon
+    def showError_popup(self, title, message):
+        msg = QtWidgets.QMessageBox()
+        msg.setIcon(QtWidgets.QMessageBox.Critical)  # set the icon of the prompt
+        msg.setWindowTitle(title)
+        msg.setText(message)
+        # msg.resize()
+        msg.setStandardButtons(QtWidgets.QMessageBox.Ok)  # set the buttons available on the prompt
+        msg.exec()
 
     # makes a prompt window with a Information icon
     def showInfo_popup(title, message):
@@ -156,7 +156,7 @@ class Ui_backEnd(object):
     def show_addPerson_dialog(self):
         print("Showing Add Person Dialog")
         add_person_ui = Add_Person_Ui_frontEnd()
-        add_person_ui.initialize(add_person_ui, core)
+        add_person_ui.initialize(add_person_ui, core, self)
 
 
 class Ui_frontEnd(object):
@@ -177,6 +177,9 @@ class Ui_frontEnd(object):
     # constructor, initialize UI
     def __init__(self):
         import sys
+        global frontEnd
+
+        frontEnd = self
         app = QtWidgets.QApplication(sys.argv)
         self.mainWindow = QtWidgets.QMainWindow()
 
@@ -229,7 +232,6 @@ class Ui_frontEnd(object):
 
 def showErrorMessage_caller(message):
     backEnd.showError_message(message)
-
 
 backEnd = Ui_backEnd()
 ui = Ui_mainWindow()

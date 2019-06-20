@@ -197,8 +197,9 @@ class Core(object):
             # increase rank by 1 for next loop
             rank += 1
 
-    def add_person(self, name, category, picture_path):
-        dm.addPerson(name, category, picture_path)
+    def add_person(self, name, category, picture_path, initialized_main_backEnd):
+        # send to data manager
+        dm.addPerson(name, category, picture_path, initialized_main_backEnd)
 
     def check_bad_time_change(self):
         # check for bad time change
