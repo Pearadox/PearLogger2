@@ -42,6 +42,7 @@ class Add_Person_Ui_backEnd(object):
         # set preview of label using lineedit
         self.setPreview('data/profilepics/' + frontEnd.ui.picture_file_line_edit.text())
 
+    # sends all data to core -> data manager and adds to file
     def addPerson_button_trigger(self):
         # make sure form is complete
         incompleteForm = False
@@ -65,6 +66,9 @@ class Add_Person_Ui_backEnd(object):
 
         # get picture name
         picture_filename = str.strip(frontEnd.ui.picture_file_line_edit.text())
+        # set to default if empty
+        if len(picture_filename) == 0:
+            picture_filename = "default.jpg"
 
         # only add if form is complete
         if not incompleteForm:
@@ -74,6 +78,7 @@ class Add_Person_Ui_backEnd(object):
             print("Incomplete form")
             main_backEnd.showError_popup("Incomplete Form","Name and Category must be filled in.")
 
+    # clears all input fields
     def clearAllFields(self):
         self.setPreview('data/profilepics/default.jpg')
         frontEnd.ui.name_lineEdit.setText("")
@@ -81,8 +86,8 @@ class Add_Person_Ui_backEnd(object):
         frontEnd.ui.category_comboBox.setCurrentIndex(0)
         pass
 
+    # sets picture preview
     def setPreview(self, picture_path):
-        print(picture_path)
         # default picture if path is incomplete
         if picture_path == 'data/profilepics/':
             picture_path = 'data/profilepics/default.jpg'

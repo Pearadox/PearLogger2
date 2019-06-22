@@ -7,7 +7,6 @@ from PearLogger_Utils import Profile, LogEntry, Constants
 
 
 class DataManager(object):
-
     peopleDict = dict()  # k: ID number  v: profile object
     log = list()  # list of logEntry objects
     loggedTime = dict()  # k: ID number  v: total logged time (seconds)
@@ -53,7 +52,7 @@ class DataManager(object):
                     category = int(str.strip(delimited[3]))
 
                     # make sure picture works or is not empty. otherwise use default
-                    if (len(str(picture_path)) is 0) or (not picture_path.exists()):
+                    if (len(str(picture_path)) is len('data\profilepics')) or (not picture_path.exists()):
                         picture_path = Path('data/profilepics/default.jpg')
 
                     # check if number already exists in dictionary
@@ -96,7 +95,9 @@ class DataManager(object):
             self.appendDirectory(str(new_ID), name, picture_path, category)
 
             #
-            initialized_main_backEnd.showInfo_popup("Profile Created", (name + " (ID #" + str(new_ID) + ") has been added to the directory."))
+            initialized_main_backEnd.showInfo_popup(
+                "Profile Created", (name + " (ID #" + str(new_ID) + ") has been added to the directory.\n\n "
+                                                                    "Please restart PearLogger to use new profiles."))
         except Exception as e:
             print(e)
 
@@ -146,7 +147,7 @@ class DataManager(object):
     # add log entry to end of log file
     def appendLog(self, ID, login_time, logout_time):
         with open("data/log.pear", "a") as logFile:
-            logFile.write(ID + ";" + str(login_time) + ";" + str(logout_time)+"\n")
+            logFile.write(ID + ";" + str(login_time) + ";" + str(logout_time) + "\n")
             logFile.close()
 
         print("Appended data/log.pear")
