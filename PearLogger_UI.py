@@ -7,6 +7,7 @@ from GUI.GUIPearLog import Ui_mainWindow
 from PearLogger_Core import Core
 from PearLogger_Utils import Constants
 from PearLogger_AddPerson_UI import Add_Person_Ui_frontEnd
+from PearLogger_ViewHours_UI import View_Hours_Ui_frontEnd
 
 # Manages user interaction with GUI, passes on logistics to Core class
 class Ui_backEnd(object):
@@ -43,7 +44,7 @@ class Ui_backEnd(object):
 
     # menu button, popup GUI to view everyone's hours
     def viewHours_menu_trigger(self):
-        pass
+        self.show_viewHours_dialog()
 
     # menu button, generates csv report of hours
     def generateReport_menu_trigger(self):
@@ -153,6 +154,11 @@ class Ui_backEnd(object):
         print("Showing Add Person Dialog")
         add_person_ui = Add_Person_Ui_frontEnd()
         add_person_ui.initialize(add_person_ui, core, self)
+
+    def show_viewHours_dialog(self):
+        print("Showing View Hours Dialog")
+        view_hours_ui = View_Hours_Ui_frontEnd()
+        view_hours_ui.initialize(core.dm)
 
 
 class Ui_frontEnd(object):

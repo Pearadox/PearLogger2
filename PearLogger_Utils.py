@@ -137,6 +137,7 @@ class Profile(object):
         except Exception as e:
             print(e)
 
+    # constructs a pixmap for picture label
     def construct_pixmap(self):
 
         picture_label = QtWidgets.QLabel()

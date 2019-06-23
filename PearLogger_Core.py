@@ -8,60 +8,60 @@ MONTH = ('January', 'February', 'March', 'April', 'May', 'June', 'July',
          'August', 'September', 'October', 'November', 'December')
 WEEKDAY = ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday')
 
-dm = DataManager()
-
 studentTableOrder = list()  # list of Profiles, parallel with studentTable boxes order
 mentorTableOrder = list()  # list of Profiles, parallel with mentorTable boxes order
 
 class Core(object):
 
+    dm = DataManager()
+
     # initializes data manager object
     def initialize_DataManager(self):
-        dm.initialize()
+        self.dm.initialize()
 
     # this must be done after app object created in ui
     def initialize_IDBoxes(self):
-        for ID, profile in dm.peopleDict.items():
+        for ID, profile in self.dm.peopleDict.items():
             profile.construct_pixmap()
 
     # initializes previous logins
     def initialize_previous_logins(self):
-        for ID in dm.loggedIn.keys():
-            self.add_box(dm.peopleDict[ID])
+        for ID in self.dm.loggedIn.keys():
+            self.add_box(self.dm.peopleDict[ID])
 
     # logs person in or out
     def log(self, ID, logTime=True):
         # make sure ID exists in system
-        if ID in dm.peopleDict.keys():
+        if ID in self.dm.peopleDict.keys():
             # get current epoch time
             currentTime = int(time.time())
 
             # get profile
-            profile = dm.peopleDict[ID]
+            profile = self.dm.peopleDict[ID]
 
             # choose whether to login or logout
-            if ID in dm.loggedIn.keys():
+            if ID in self.dm.loggedIn.keys():
                 # logout
                 print("Logging out " + ID)
 
-                current_session_logged_time = currentTime - dm.loggedIn[ID]
+                current_session_logged_time = currentTime - self.dm.loggedIn[ID]
 
                 if logTime:
                     # calculate and record logged hours
                     # create ID entry for logging times if it doesn't exist yet
-                    if ID not in dm.loggedTime.keys():
-                        dm.loggedTime[ID] = 0
+                    if ID not in self.dm.loggedTime.keys():
+                        self.dm.loggedTime[ID] = 0
                     # add dt to logged
-                    dm.loggedTime[ID] += current_session_logged_time
+                    self.dm.loggedTime[ID] += current_session_logged_time
 
                     # add time to log
-                    dm.appendLog(ID, dm.loggedIn[ID], currentTime)
+                    self.dm.appendLog(ID, self.dm.loggedIn[ID], currentTime)
 
                 # remove ID from loggedIn dictionary
-                dm.loggedIn.pop(ID, None)
+                self.dm.loggedIn.pop(ID, None)
 
                 # update loggedIn file
-                dm.rewriteLoggedIn()
+                self.dm.rewriteLoggedIn()
 
                 # remove ID box from GUI Table
                 self.remove_box(profile)
@@ -73,10 +73,10 @@ class Core(object):
                 print("Logging in " + ID)
 
                 # add current time to loggedIn dictionary
-                dm.loggedIn[ID] = currentTime
+                self.dm.loggedIn[ID] = currentTime
 
                 # update loggedIn file
-                dm.rewriteLoggedIn()
+                self.dm.rewriteLoggedIn()
 
                 # add ID box to GUI Table
                 self.add_box(profile)
@@ -114,21 +114,21 @@ class Core(object):
     # logs out person, but does not log hours
     def clearHours(self, ID):
         # make sure person is still signed in
-        if ID in dm.loggedIn.keys():
+        if ID in self.dm.loggedIn.keys():
             # log person out, but pass in boolean to NOT log hours
             self.log(ID, False)
 
     # clear hours for all logged in people
     def clearAll(self):
         # get copy of dictionary so keys() dont change
-        dict_copy = copy.deepcopy(dm.loggedIn)
+        dict_copy = copy.deepcopy(self.dm.loggedIn)
         for ID in dict_copy.keys():
             self.clearHours(ID)
 
     # signs out all logged in peopl
     def signoutAll(self):
         # get copy of dictionary so keys() dont change
-        dict_copy = copy.deepcopy(dm.loggedIn)
+        dict_copy = copy.deepcopy(self.dm.loggedIn)
         for ID in dict_copy.keys():
             self.log(ID)
 
@@ -168,7 +168,7 @@ class Core(object):
         from PearLogger_UI import backEnd
 
         # sorts times in reverse order, gives a list of tuples ([0]=ID, [1]=time)
-        sortedTimes = sorted(dm.loggedTime.items(), key=lambda kv: kv[1], reverse=True)
+        sortedTimes = sorted(self.dm.loggedTime.items(), key=lambda kv: kv[1], reverse=True)
 
         # keep track of ranks
         rank = 1
@@ -181,8 +181,13 @@ class Core(object):
             if rank > 10:
                 break
 
+            # log file error check: nonexistent ID
+            if tup[0] not in self.dm.peopleDict:
+                print("ERROR: Non Existent ID in Log (" + tup[0] + ")")
+                continue
+
             # get profile with ID
-            profile = dm.peopleDict[tup[0]]
+            profile = self.dm.peopleDict[tup[0]]
 
             # calculate hours
             hours = tup[1]/3600
@@ -199,14 +204,14 @@ class Core(object):
 
     def add_person(self, name, category, picture_path, initialized_main_backEnd):
         # send to data manager
-        dm.addPerson(name, category, picture_path, initialized_main_backEnd)
+        self.dm.addPerson(name, category, picture_path, initialized_main_backEnd)
 
     def check_bad_time_change(self):
         # check for bad time change
-        if dm.latest_known_time > time.time():
+        if self.dm.latest_known_time > time.time():
             from PearLogger_UI import backEnd
             message = "Current time (" + str(int(time.time())) + \
-                      ") is earlier than latest time (" + str(dm.latest_known_time) + ")!"
+                      ") is earlier than latest time (" + str(self.dm.latest_known_time) + ")!"
             print(message)
             backEnd.showError_popup("Time Change Error", message)
 

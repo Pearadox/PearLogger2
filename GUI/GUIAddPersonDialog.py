@@ -12,6 +12,11 @@ class Ui_AddPersonDialog(object):
     def setupUi(self, AddPersonDialog):
         AddPersonDialog.setObjectName("AddPersonDialog")
         AddPersonDialog.resize(350, 450)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(AddPersonDialog.sizePolicy().hasHeightForWidth())
+        AddPersonDialog.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Segoe UI Symbol")
         font.setPointSize(10)
