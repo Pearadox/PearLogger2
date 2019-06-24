@@ -216,10 +216,10 @@ class DataManager(object):
             file = open("data/config.pear", 'w')
 
             #  write in default data
-            file.write("Shortest_Time_Allowed=00:00:00\n" +
-                        "Longest_Time_Allowed=12:00:00\n" +
-                        "Earliest_Time_Allowed=08:00:00\n" +
-                        "Latest_Time_Allowed=00:00:00\n" +
+            file.write("Minimum_Hours=0\n" +
+                        "Maximum_Hours=12\n" +
+                        "Window_Open=08:00\n" +
+                        "Window_Close=00:00\n" +
                         "Enable_Time_Limit=0\n" +
                         "Enable_Time_Window=0\n" +
                         "Leaderboard_Visible_Categories=0,1,2,3,4,5,6,7")

@@ -12,6 +12,7 @@ class Options_Ui_backEnd(object):
 
     def initialize(self):
         self.initialize_leaderboard_checkboxes()
+        self.initialize_time_rules()
 
     # initialize check boxes
     def initialize_leaderboard_checkboxes(self):
@@ -39,6 +40,27 @@ class Options_Ui_backEnd(object):
         if str(Profile.CATEGORY_OTHER) in visible_categories:
             frontEnd.ui.other_checkBox.setChecked(True)
 
+    def initialize_time_rules(self):
+        # set widget values based on current config
+        
+
+        # turn on labels based on checkbox state
+        self.time_length_limit_checkbox_action()
+        self.time_window_checkbox_action()
+
+    def time_length_limit_checkbox_action(self):
+        frontEnd.ui.minimum_hours_label.setVisible(frontEnd.ui.time_length_limit_checkBox.isChecked())
+        frontEnd.ui.maximum_hours_label.setVisible(frontEnd.ui.time_length_limit_checkBox.isChecked())
+        frontEnd.ui.minimum_hours_spinBox.setVisible(frontEnd.ui.time_length_limit_checkBox.isChecked())
+        frontEnd.ui.maximun_hours_spinBox.setVisible(frontEnd.ui.time_length_limit_checkBox.isChecked())
+
+    def time_window_checkbox_action(self):
+        frontEnd.ui.window_open_label.setVisible(frontEnd.ui.time_window_checkBox.isChecked())
+        frontEnd.ui.window_close_label.setVisible(frontEnd.ui.time_window_checkBox.isChecked())
+        frontEnd.ui.window_open_timeEdit.setVisible(frontEnd.ui.time_window_checkBox.isChecked())
+        frontEnd.ui.window_close_timeEdit.setVisible(frontEnd.ui.time_window_checkBox.isChecked())
+
+    # records leaderboard checkboxes into config file
     def record_leaderboard_checkbox_config(self):
         # create list confiig of visible boxes
         visible_categories = list()
@@ -98,6 +120,9 @@ class Options_Ui_frontEnd(object):
     # custom UI configurations
     def customConfiguration(self):
         self.ui.apply_button.clicked.connect(backEnd.apply_button_action)
+        self.ui.time_length_limit_checkBox.clicked.connect(backEnd.time_length_limit_checkbox_action)
+        self.ui.time_window_checkBox.clicked.connect(backEnd.time_window_checkbox_action)
+
 
 frontEnd = None
 dm = None

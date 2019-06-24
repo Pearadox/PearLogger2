@@ -1,7 +1,7 @@
 Leaderboard_Visible_Categories=1,2,3,11,12,13,21,22
-Enable_Time_Limit=0
-Shortest_Time_Allowed=00:00:00
-Longest_Time_Allowed=12:00:00
-Enable_Time_Window=0
-Earliest_Time_Allowed=08:00:00
-Latest_Time_Allowed=00:00:00
+Enable_Time_Limit=1
+Minimum_Hours=0
+Maximum_Hours=12
+Enable_Time_Window=1
+Window_Open=08:00
+Window_Close=00:00
