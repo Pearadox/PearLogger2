@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="log_rules_tab">
     <attribute name="title">
@@ -210,7 +210,7 @@
     </widget>
    </widget>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="apply_button">
    <property name="geometry">
     <rect>
      <x>750</x>

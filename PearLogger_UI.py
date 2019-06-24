@@ -8,6 +8,7 @@ from PearLogger_Core import Core
 from PearLogger_Utils import Constants
 from PearLogger_AddPerson_UI import Add_Person_Ui_frontEnd
 from PearLogger_ViewHours_UI import View_Hours_Ui_frontEnd
+from PearLogger_Options_UI import Options_Ui_frontEnd
 
 # Manages user interaction with GUI, passes on logistics to Core class
 class Ui_backEnd(object):
@@ -52,7 +53,7 @@ class Ui_backEnd(object):
 
     # menu button, popup GUI to change options
     def options_menu_trigger(self):
-        pass
+        self.show_options_dialog()
 
     # menu button, pop GUI to add person
     def addPerson_menu_trigger(self):
@@ -135,6 +136,13 @@ class Ui_backEnd(object):
         widgets[2].setMaximum(maxTime*10000)
         widgets[2].setValue(time*10000)
 
+    def clearLeaderboard(self):
+        for i in range(1, 11):
+            widgets = self.get_leaderboard_widgets(i)
+            widgets[0].clear()
+            widgets[1].clear()
+            widgets[2].setValue(0)
+
     # returns leaderboard widgets tuple given a rank ([0]=name label, [1]=time label, [2]=time progress bar)
     def get_leaderboard_widgets(self, rank):
         return {
@@ -159,6 +167,11 @@ class Ui_backEnd(object):
         print("Showing View Hours Dialog")
         view_hours_ui = View_Hours_Ui_frontEnd()
         view_hours_ui.initialize(core.dm)
+
+    def show_options_dialog(self):
+        print("Showing Options Dialog")
+        options_ui = Options_Ui_frontEnd()
+        options_ui.initialize(core, core.dm)
 
 
 class Ui_frontEnd(object):

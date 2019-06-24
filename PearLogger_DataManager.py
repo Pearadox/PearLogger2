@@ -11,6 +11,7 @@ class DataManager(object):
     log = list()  # list of logEntry objects
     loggedTime = dict()  # k: ID number  v: total logged time (seconds)
     loggedIn = dict()  # k: ID number  v: login time (epoch)
+    config = dict()  # k: config name  v: config entry
 
     newIDs = list()  # list of newly added IDs, prevents ID reuse
 
@@ -206,4 +207,48 @@ class DataManager(object):
         print("Rewrote data/loggedIn.pear")
 
     def readConfig(self):
-        pass
+        # open file
+        config_file = Path("data/config.pear")
+
+        # create file if it doesn't exist
+        if not config_file.exists():
+            #  create new people file
+            file = open("data/config.pear", 'w')
+
+            #  write in default data
+            file.write("Shortest_Time_Allowed=00:00:00\n" +
+                        "Longest_Time_Allowed=12:00:00\n" +
+                        "Earliest_Time_Allowed=08:00:00\n" +
+                        "Latest_Time_Allowed=00:00:00\n" +
+                        "Enable_Time_Limit=0\n" +
+                        "Enable_Time_Window=0\n" +
+                        "Leaderboard_Visible_Categories=0,1,2,3,4,5,6,7")
+            file.close()
+
+        # process people into dictionary
+        with open("data/config.pear") as inf:
+            # keep track of current line for error message
+            lineCount = 0
+            for line in inf:
+                lineCount += 1
+                try:
+                    # parse through data in each line
+                    raw = str.strip(line)
+                    delimited = re.split('=', raw)
+                    config_key = str.strip(delimited[0])
+                    config_value = str.strip(delimited[1])
+
+                    # record the config
+                    self.config[config_key] = config_value
+                except Exception as e:
+                    print(e)
+                    print("ERROR: Parsing error in config file (data/config.pear, line " + str(lineCount) + ")")
+        print("Loaded data/config.pear")
+
+    # updates config file
+    def rewriteConfig(self):
+        # open file
+        config_file = open("data/config.pear", 'w')
+        for config_key, config_value in self.config.items():
+            config_file.write(str(config_key) + "=" + str(config_value) + "\n")
+        print("Rewrote data/config.pear")

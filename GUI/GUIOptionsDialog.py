@@ -85,12 +85,12 @@ class Ui_optionsDialog(object):
         self.other_checkBox.setFont(font)
         self.other_checkBox.setObjectName("other_checkBox")
         self.tabWidget.addTab(self.leaderboard_tab, "")
-        self.pushButton = QtWidgets.QPushButton(optionsDialog)
-        self.pushButton.setGeometry(QtCore.QRect(750, 570, 121, 23))
-        self.pushButton.setObjectName("pushButton")
+        self.apply_button = QtWidgets.QPushButton(optionsDialog)
+        self.apply_button.setGeometry(QtCore.QRect(750, 570, 121, 23))
+        self.apply_button.setObjectName("apply_button")
 
         self.retranslateUi(optionsDialog)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(optionsDialog)
 
     def retranslateUi(self, optionsDialog):
@@ -107,7 +107,7 @@ class Ui_optionsDialog(object):
         self.team_checkBox.setText(_translate("optionsDialog", "Team"))
         self.other_checkBox.setText(_translate("optionsDialog", "Other"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.leaderboard_tab), _translate("optionsDialog", "Leaderboard"))
-        self.pushButton.setText(_translate("optionsDialog", "Apply"))
+        self.apply_button.setText(_translate("optionsDialog", "Apply"))
 
 
 if __name__ == "__main__":

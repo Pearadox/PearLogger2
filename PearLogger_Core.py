@@ -1,5 +1,6 @@
 # core functionality of PearLogger
 import copy
+import re
 import time, datetime
 from PearLogger_DataManager import DataManager
 from PearLogger_Utils import Constants
@@ -176,6 +177,17 @@ class Core(object):
         # need max time to determine bar sizes
         top_time = 0
 
+        # get leaderboard filter configuration
+        # add leaderboard visiblitiy config entry if it doesn't exist
+        if 'Leaderboard_Visible_Categories' not in self.dm.config.keys():
+            self.dm.config['Leaderboard_Visible_Categories'] = '1,2,3,11,12,13,21,22'
+
+        # get list config of visible boxes
+        visible_categories = re.split(',', self.dm.config['Leaderboard_Visible_Categories'])
+
+        # clear leaderboard
+        backEnd.clearLeaderboard()
+
         for tup in sortedTimes:
             # only take top 10
             if rank > 10:
@@ -188,6 +200,10 @@ class Core(object):
 
             # get profile with ID
             profile = self.dm.peopleDict[tup[0]]
+
+            # check for filter
+            if str(profile.category) not in visible_categories:
+                continue
 
             # calculate hours
             hours = tup[1]/3600
