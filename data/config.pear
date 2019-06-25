@@ -4,4 +4,4 @@ Minimum_Hours=0
 Maximum_Hours=12
 Enable_Time_Window=1
 Window_Open=08:00
-Window_Close=00:00
+Window_Close=24:00

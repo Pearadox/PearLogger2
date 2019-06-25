@@ -1,4 +1,5 @@
 # front and back end GUI
+import datetime
 import re
 import time
 
@@ -41,8 +42,38 @@ class Options_Ui_backEnd(object):
             frontEnd.ui.other_checkBox.setChecked(True)
 
     def initialize_time_rules(self):
+
+        # get current config
+        try:
+            # enable configs
+            enable_time_limit_config = dm.config['Enable_Time_Limit'] is '1'
+            enable_time_window_config = dm.config['Enable_Time_Window'] is '1'
+
+            # time limits
+            time_limit_minimum_config = float(dm.config['Minimum_Hours'])
+            time_limit_maximum_config = float(dm.config['Maximum_Hours'])
+
+            # window time
+            # split with ':' delimiter to get individual hours and minutes
+            open_delimited = re.split(':', dm.config['Window_Open'])
+            close_delimited = re.split(':', dm.config['Window_Close'])
+            # calculate seconds
+            time_window_open_seconds_config = int(open_delimited[0]) * 3600 + int(open_delimited[1]) * 60
+            time_window_close_seconds_config = int(close_delimited[0]) * 3600 + int(close_delimited[1]) * 60
+        except Exception as e:
+            # config file is bad
+            main_ui.showError_popup(
+                "Configuration File Error", "Time limit/window configuration invalid (data/config.pear")
+
         # set widget values based on current config
-        
+        frontEnd.ui.time_length_limit_checkBox.setChecked(enable_time_limit_config)
+        frontEnd.ui.time_window_checkBox.setChecked(enable_time_window_config)
+        frontEnd.ui.minimum_hours_spinBox.setValue(time_limit_minimum_config)
+        frontEnd.ui.maximum_hours_spinBox.setValue(time_limit_maximum_config)
+        frontEnd.ui.window_open_timeEdit.setTime(
+            QtCore.QTime(int(time_window_open_seconds_config/3600), int(time_window_open_seconds_config%3600/60)))
+        frontEnd.ui.window_close_timeEdit.setTime(
+            QtCore.QTime(int(time_window_close_seconds_config/3600), int(time_window_close_seconds_config%3600/60)))
 
         # turn on labels based on checkbox state
         self.time_length_limit_checkbox_action()
@@ -52,7 +83,7 @@ class Options_Ui_backEnd(object):
         frontEnd.ui.minimum_hours_label.setVisible(frontEnd.ui.time_length_limit_checkBox.isChecked())
         frontEnd.ui.maximum_hours_label.setVisible(frontEnd.ui.time_length_limit_checkBox.isChecked())
         frontEnd.ui.minimum_hours_spinBox.setVisible(frontEnd.ui.time_length_limit_checkBox.isChecked())
-        frontEnd.ui.maximun_hours_spinBox.setVisible(frontEnd.ui.time_length_limit_checkBox.isChecked())
+        frontEnd.ui.maximum_hours_spinBox.setVisible(frontEnd.ui.time_length_limit_checkBox.isChecked())
 
     def time_window_checkbox_action(self):
         frontEnd.ui.window_open_label.setVisible(frontEnd.ui.time_window_checkBox.isChecked())
@@ -101,11 +132,12 @@ class Options_Ui_frontEnd(object):
         backEnd.initialize()
 
     # constructor, initialize UI
-    def initialize(self, coreInstance, dataManager):
-        global dm, frontEnd, core
+    def initialize(self, coreInstance, dataManager, main_ui_instance):
+        global dm, frontEnd, core, main_ui
         core = coreInstance
         dm = dataManager
         frontEnd = self
+        main_ui = main_ui_instance
 
         self.OptionsDialog = QtWidgets.QDialog(None, QtCore.Qt.WindowSystemMenuHint | QtCore.Qt.WindowTitleHint
                                             | QtCore.Qt.WindowCloseButtonHint)
@@ -124,6 +156,7 @@ class Options_Ui_frontEnd(object):
         self.ui.time_window_checkBox.clicked.connect(backEnd.time_window_checkbox_action)
 
 
+main_ui = None
 frontEnd = None
 dm = None
 core = None

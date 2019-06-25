@@ -171,7 +171,7 @@ class Ui_backEnd(object):
     def show_options_dialog(self):
         print("Showing Options Dialog")
         options_ui = Options_Ui_frontEnd()
-        options_ui.initialize(core, core.dm)
+        options_ui.initialize(core, core.dm, self)
 
 
 class Ui_frontEnd(object):

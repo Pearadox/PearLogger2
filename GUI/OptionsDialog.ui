@@ -108,7 +108,7 @@
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QDoubleSpinBox" name="maximun_hours_spinBox">
+    <widget class="QDoubleSpinBox" name="maximum_hours_spinBox">
      <property name="geometry">
       <rect>
        <x>170</x>
