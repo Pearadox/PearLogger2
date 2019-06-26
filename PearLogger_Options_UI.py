@@ -49,6 +49,8 @@ class Options_Ui_backEnd(object):
             enable_time_limit_config = dm.config['Enable_Time_Limit'] is '1'
             enable_time_window_config = dm.config['Enable_Time_Window'] is '1'
 
+            print(dm.config['Enable_Time_Window'] is '1')
+
             # time limits
             time_limit_minimum_config = float(dm.config['Minimum_Hours'])
             time_limit_maximum_config = float(dm.config['Maximum_Hours'])
@@ -63,7 +65,7 @@ class Options_Ui_backEnd(object):
         except Exception as e:
             # config file is bad
             main_ui.showError_popup(
-                "Configuration File Error", "Time limit/window configuration invalid (data/config.pear")
+                "Configuration File Error", "Time limit/window configuration invalid (data/config.pear)")
 
         # set widget values based on current config
         frontEnd.ui.time_length_limit_checkBox.setChecked(enable_time_limit_config)
@@ -116,12 +118,28 @@ class Options_Ui_backEnd(object):
         # change list to comma-delimited string
         dm.config['Leaderboard_Visible_Categories'] = ','.join(visible_categories)
 
+    def record_time_rules_config(self):
+        dm.config['Enable_Time_Limit'] = '1' if frontEnd.ui.time_length_limit_checkBox.isChecked() else '0'
+        dm.config['Enable_Time_Window'] = '1' if frontEnd.ui.time_window_checkBox.isChecked() else '0'
+        dm.config['Minimum_Hours'] = str(frontEnd.ui.minimum_hours_spinBox.value())
+        dm.config['Maximum_Hours'] = str(frontEnd.ui.maximum_hours_spinBox.value())
+
+        # get QTime from window
+        open_time = frontEnd.ui.window_open_timeEdit.time()
+        close_time = frontEnd.ui.window_close_timeEdit.time()
+
+        dm.config['Window_Open'] = str(open_time.hour()) + ":" + str(open_time.minute())
+        dm.config['Window_Close'] = str(close_time.hour()) + ":" + str(close_time.minute())
+
     # action when button pressed
     def apply_button_action(self):
-        # check box config
+        # record checkbox config
         self.record_leaderboard_checkbox_config()
-        # update leaderboard to show filter
+        # update leaderboard
         core.updateLeaderboard()
+
+        # record time limit/window config
+        self.record_time_rules_config()
 
         # update config file
         dm.rewriteConfig()

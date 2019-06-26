@@ -7,10 +7,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6e62f077-6b3f-4683-862a-ee6cbb313dd3" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/GUIOptionsDialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/GUIOptionsDialog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/OptionsDialog.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/OptionsDialog.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PearLogger_Options_UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/PearLogger_Options_UI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PearLogger_UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/PearLogger_UI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/config.pear" beforeDir="false" afterPath="$PROJECT_DIR$/data/config.pear" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -58,8 +56,8 @@
       <file leaf-file-name="PearLogger_Options_UI.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PearLogger_Options_UI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="75" column="105" selection-start-line="75" selection-start-column="105" selection-end-line="75" selection-end-column="105" />
+            <state relative-caret-position="223">
+              <caret line="121" column="44" selection-start-line="121" selection-start-column="44" selection-end-line="121" selection-end-column="44" />
               <folding>
                 <element signature="e#25#40#0" expanded="true" />
               </folding>
@@ -70,8 +68,8 @@
       <file leaf-file-name="config.pear" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/config.pear">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="12" selection-start-line="6" selection-end-line="6" selection-end-column="12" />
+            <state relative-caret-position="100">
+              <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -140,8 +138,8 @@
         <option value="$PROJECT_DIR$/GUI/ui2py.bat" />
         <option value="$PROJECT_DIR$/PearLogger_Core.py" />
         <option value="$PROJECT_DIR$/PearLogger_DataManager.py" />
-        <option value="$PROJECT_DIR$/data/config.pear" />
         <option value="$PROJECT_DIR$/PearLogger_UI.py" />
+        <option value="$PROJECT_DIR$/data/config.pear" />
         <option value="$PROJECT_DIR$/PearLogger_Options_UI.py" />
       </list>
     </option>
@@ -647,15 +645,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/config.pear">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="12" selection-start-line="6" selection-end-line="6" selection-end-column="12" />
+        <state relative-caret-position="100">
+          <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PearLogger_Options_UI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="75" column="105" selection-start-line="75" selection-start-column="105" selection-end-line="75" selection-end-column="105" />
+        <state relative-caret-position="223">
+          <caret line="121" column="44" selection-start-line="121" selection-start-column="44" selection-end-line="121" selection-end-column="44" />
           <folding>
             <element signature="e#25#40#0" expanded="true" />
           </folding>
