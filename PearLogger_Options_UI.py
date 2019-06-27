@@ -49,8 +49,6 @@ class Options_Ui_backEnd(object):
             enable_time_limit_config = dm.config['Enable_Time_Limit'] is '1'
             enable_time_window_config = dm.config['Enable_Time_Window'] is '1'
 
-            print(dm.config['Enable_Time_Window'] is '1')
-
             # time limits
             time_limit_minimum_config = float(dm.config['Minimum_Hours'])
             time_limit_maximum_config = float(dm.config['Maximum_Hours'])

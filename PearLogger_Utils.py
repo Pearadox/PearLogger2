@@ -1,4 +1,5 @@
 # Objects to hold data
+import datetime
 
 from PyQt5 import QtWidgets, QtGui, QtCore
 
@@ -161,3 +162,17 @@ class LogEntry(object):
         self.ID = ID
         self.login_time = login_time
         self.logout_time = logout_time
+
+
+# gives current epoch time but in this time zone based on system time
+def getCurrentTime():
+    currentTime = int((datetime.datetime.now() - datetime.datetime(1970, 1, 1)).total_seconds())
+    return currentTime
+
+
+# determines if a time is in between a start and end point
+def inBetween(now, start, end):
+    if start <= end:
+        return start <= now < end
+    else:  # over midnight
+        return start <= now or now < end

@@ -3,7 +3,7 @@ import copy
 import re
 import time, datetime
 from PearLogger_DataManager import DataManager
-from PearLogger_Utils import Constants
+from PearLogger_Utils import Constants, inBetween, getCurrentTime
 
 MONTH = ('January', 'February', 'March', 'April', 'May', 'June', 'July',
          'August', 'September', 'October', 'November', 'December')
@@ -34,11 +34,22 @@ class Core(object):
     def log(self, ID, logTime=True):
         # make sure ID exists in system
         if ID in self.dm.peopleDict.keys():
-            # get current epoch time
-            currentTime = int(time.time())
+            # get current time
+            currentTime = getCurrentTime()
+            print(currentTime)
 
             # get profile
             profile = self.dm.peopleDict[ID]
+
+            # get configs
+            enable_time_limit_config = self.dm.config['Enable_Time_Limit'] is '1'
+            enable_time_window_config = self.dm.config['Enable_Time_Window'] is '1'
+            time_limit_minimum_config = float(self.dm.config['Minimum_Hours'])
+            time_limit_maximum_config = float(self.dm.config['Maximum_Hours'])
+            open_delimited = re.split(':', self.dm.config['Window_Open'])
+            close_delimited = re.split(':', self.dm.config['Window_Close'])
+            time_window_open_seconds_config = int(open_delimited[0]) * 3600 + int(open_delimited[1]) * 60
+            time_window_close_seconds_config = int(close_delimited[0]) * 3600 + int(close_delimited[1]) * 60
 
             # choose whether to login or logout
             if ID in self.dm.loggedIn.keys():
@@ -47,8 +58,37 @@ class Core(object):
 
                 current_session_logged_time = currentTime - self.dm.loggedIn[ID]
 
+                # apply config settings
+                # calculate logout time relative to start time
+                logout_time_relative = currentTime % (24 * 3600)
+                if enable_time_window_config and not inBetween(
+                        logout_time_relative, time_window_open_seconds_config, time_window_close_seconds_config):
+
+                    # limit logout time
+                    print("Limiting log time (window)")
+                    if logout_time_relative > time_window_close_seconds_config:
+                        # same day
+                        limited_logout_time = currentTime - (logout_time_relative - time_window_close_seconds_config)
+                    else:
+                        # new day
+                        limited_logout_time = currentTime - (
+                                (24 * 3600) - (time_window_close_seconds_config - logout_time_relative))
+
+                    print(str(currentTime-limited_logout_time))
+
+                if enable_time_limit_config:
+                    if current_session_logged_time > time_limit_maximum_config:
+                        # logged in too long, only log max time
+                        print("Limiting log time (limit, long)")
+                        current_session_logged_time = time_limit_maximum_config
+                    elif current_session_logged_time < time_limit_minimum_config:
+                        # not logged in long enough, don't record time
+                        print("Blocking log time (limit, short)")
+                        logTime = False
+
                 if logTime:
-                    # calculate and record logged hours
+                    # Record logged hours
+
                     # create ID entry for logging times if it doesn't exist yet
                     if ID not in self.dm.loggedTime.keys():
                         self.dm.loggedTime[ID] = 0
@@ -72,6 +112,14 @@ class Core(object):
             else:
                 # login
                 print("Logging in " + ID)
+
+                # check if too early to sign in
+                login_time_relative = currentTime % (24 * 3600)
+                if not inBetween(
+                        login_time_relative, time_window_open_seconds_config, time_window_close_seconds_config):
+                    print("Blocking login (window, too early)")
+                    self.showErrorMessage("Error: Login time too early! Change config or sync sys time.")
+                    return False
 
                 # add current time to loggedIn dictionary
                 self.dm.loggedIn[ID] = currentTime

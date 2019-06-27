@@ -1,7 +1,7 @@
 Leaderboard_Visible_Categories=1,2,3,11,12,13,21,22
-Enable_Time_Limit=1
+Enable_Time_Limit=0
 Minimum_Hours=0.5
 Maximum_Hours=12.0
 Enable_Time_Window=1
 Window_Open=8:0
-Window_Close=0:0
+Window_Close=23:0
