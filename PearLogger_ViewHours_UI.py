@@ -6,8 +6,12 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from GUI.GUIViewHoursDialog import Ui_ViewHours_Dialog
 from PearLogger_Utils import Profile
 
+
 # Manages user interaction with GUI, passes on logistics to Core class
 class View_Hours_Ui_backEnd(object):
+
+    ranks = dict()
+
 
     def initialize(self):
         # create sorted time list of tuples
@@ -16,12 +20,22 @@ class View_Hours_Ui_backEnd(object):
         # create keyword model for search function
         self.create_model()
 
+        # assign ranks
+        self.assignRanks()
+
         # populate table with everything
         self.populateTable()
 
     # gets called when something is typed in the search bar
     def lineEdit_textChanged(self):
         self.populateTable(frontEnd.ui.lineEdit.text())
+
+    def assignRanks(self):
+        # loop through sorted times
+        row = 0
+        for (ID, time) in self.sortedTimes:
+            self.ranks[ID] = row + 1
+            row += 1
 
     def populateTable(self, search = ""):
         # clear table
@@ -59,7 +73,7 @@ class View_Hours_Ui_backEnd(object):
                         continue
 
             # create labels and customize them
-            rank_label = QtWidgets.QLabel(str(row+1) + "  ")
+            rank_label = QtWidgets.QLabel(str(self.ranks[ID]) + "  ")
             rank_label.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
 
             name_label = QtWidgets.QLabel(name + "  ")
