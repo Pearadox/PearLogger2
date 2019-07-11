@@ -1,1 +1,7 @@
-add leaderboard filter for student/mentor
+first two digits are graduation year
+next is 0-dawson, 2-turner, 1-pearland
+last 2 is ID counter
+
+weekday, sat, sun time window and time length
+sum up for every ID
+build season hours vs nonbuild season
