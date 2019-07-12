@@ -117,7 +117,7 @@ class Ui_backEnd(object):
         msg.setText(message)
         # msg.resize()
         msg.setStandardButtons(QtWidgets.QMessageBox.Ok)  # set the buttons available on the prompt
-        msg.exec()
+        msg.show()
 
     # makes a prompt window with a Information icon
     def showInfo_popup(self, title, message):
@@ -127,7 +127,7 @@ class Ui_backEnd(object):
         msg.setText(message)
         msg.resize(500, 500)
         msg.setStandardButtons(QtWidgets.QMessageBox.Ok)  # set the buttons available on the prompt
-        msg.exec()
+        msg.show()
 
     def setLeaderboard(self, rank, name, time, maxTime):
         widgets = self.get_leaderboard_widgets(rank)

@@ -6,9 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e62f077-6b3f-4683-862a-ee6cbb313dd3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/GUI/AddPersonDialog.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/AddPersonDialog.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/ViewHoursDialog.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/ViewHoursDialog.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PearLogger_ViewHours_UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/PearLogger_ViewHours_UI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PearLogger_UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/PearLogger_UI.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,6 +17,18 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PearLogger_UI.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="129" column="18" selection-start-line="129" selection-start-column="18" selection-end-line="129" selection-end-column="18" />
+              <folding>
+                <element signature="e#26#68#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PearLogger_ViewHours_UI.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="446">
@@ -68,6 +78,7 @@
       <find>re.sp</find>
       <find>maximun</find>
       <find>time.time</find>
+      <find>.exec()</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -90,7 +101,6 @@
         <option value="$PROJECT_DIR$/data/people.pear" />
         <option value="$PROJECT_DIR$/GUI/ui2py.bat" />
         <option value="$PROJECT_DIR$/PearLogger_DataManager.py" />
-        <option value="$PROJECT_DIR$/PearLogger_UI.py" />
         <option value="$PROJECT_DIR$/data/config.pear" />
         <option value="$PROJECT_DIR$/PearLogger_Utils.py" />
         <option value="$PROJECT_DIR$/data/loggedIn.pear" />
@@ -98,6 +108,7 @@
         <option value="$PROJECT_DIR$/data/log.pear" />
         <option value="$PROJECT_DIR$/PearLogger_Options_UI.py" />
         <option value="$PROJECT_DIR$/PearLogger_ViewHours_UI.py" />
+        <option value="$PROJECT_DIR$/PearLogger_UI.py" />
       </list>
     </option>
   </component>
@@ -408,16 +419,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PearLogger_UI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2080">
-          <caret line="112" column="23" selection-start-line="112" selection-start-column="8" selection-end-line="112" selection-end-column="23" />
-          <folding>
-            <element signature="e#26#68#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/config.pear">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -474,6 +475,16 @@
           <caret line="150" column="46" selection-start-line="150" selection-start-column="46" selection-end-line="150" selection-end-column="46" />
           <folding>
             <element signature="e#25#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PearLogger_UI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="129" column="18" selection-start-line="129" selection-start-column="18" selection-end-line="129" selection-end-column="18" />
+          <folding>
+            <element signature="e#26#68#0" expanded="true" />
           </folding>
         </state>
       </provider>
