@@ -5,9 +5,7 @@
     <bookmark url="file://$PROJECT_DIR$/PearLogger_UI.py" line="133" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e62f077-6b3f-4683-862a-ee6cbb313dd3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/PearLogger_UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/PearLogger_UI.py" afterDir="false" />
-    </list>
+    <list default="true" id="6e62f077-6b3f-4683-862a-ee6cbb313dd3" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,11 +279,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.PearLogger_Core" />
       <item itemvalue="Python.PearLogger_Main" />
-      <item itemvalue="Python.PearLogger_UI" />
-      <item itemvalue="Python.PearLogger_UI_BackEnd" />
       <item itemvalue="Python.PearLogger_UI_FrontEnd" />
+      <item itemvalue="Python.PearLogger_UI_BackEnd" />
+      <item itemvalue="Python.PearLogger_Core" />
+      <item itemvalue="Python.PearLogger_UI" />
     </list>
     <recent_temporary>
       <list>

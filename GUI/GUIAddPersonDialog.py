@@ -54,7 +54,7 @@ class Ui_AddPersonDialog(object):
         self.name_label.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.name_label.setObjectName("name_label")
         self.name_label_2 = QtWidgets.QLabel(AddPersonDialog)
-        self.name_label_2.setGeometry(QtCore.QRect(20, 70, 71, 31))
+        self.name_label_2.setGeometry(QtCore.QRect(0, 70, 91, 31))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Symbol")
         font.setPointSize(11)
