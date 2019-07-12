@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="log_rules_tab">
     <attribute name="title">
@@ -34,7 +34,7 @@
       <rect>
        <x>50</x>
        <y>60</y>
-       <width>271</width>
+       <width>321</width>
        <height>31</height>
       </rect>
      </property>
@@ -51,7 +51,7 @@
     <widget class="QLabel" name="minimum_hours_label">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>70</x>
        <y>100</y>
        <width>111</width>
        <height>31</height>
@@ -73,7 +73,7 @@
     <widget class="QDoubleSpinBox" name="minimum_hours_spinBox">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>190</x>
        <y>100</y>
        <width>91</width>
        <height>31</height>
@@ -89,7 +89,7 @@
     <widget class="QLabel" name="maximum_hours_label">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>60</x>
        <y>140</y>
        <width>121</width>
        <height>31</height>
@@ -111,7 +111,7 @@
     <widget class="QDoubleSpinBox" name="maximum_hours_spinBox">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>190</x>
        <y>140</y>
        <width>91</width>
        <height>31</height>
@@ -146,7 +146,7 @@
     <widget class="QLabel" name="window_open_label">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>40</x>
        <y>230</y>
        <width>141</width>
        <height>31</height>
@@ -168,7 +168,7 @@
     <widget class="QLabel" name="window_close_label">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>40</x>
        <y>270</y>
        <width>141</width>
        <height>31</height>
@@ -190,7 +190,7 @@
     <widget class="QTimeEdit" name="window_open_timeEdit">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>190</x>
        <y>230</y>
        <width>118</width>
        <height>31</height>
@@ -200,7 +200,7 @@
     <widget class="QTimeEdit" name="window_close_timeEdit">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>190</x>
        <y>270</y>
        <width>118</width>
        <height>31</height>
@@ -239,7 +239,7 @@
       <rect>
        <x>30</x>
        <y>50</y>
-       <width>151</width>
+       <width>201</width>
        <height>21</height>
       </rect>
      </property>
@@ -258,7 +258,7 @@
       <rect>
        <x>30</x>
        <y>80</y>
-       <width>151</width>
+       <width>211</width>
        <height>21</height>
       </rect>
      </property>
@@ -277,7 +277,7 @@
       <rect>
        <x>30</x>
        <y>110</y>
-       <width>151</width>
+       <width>181</width>
        <height>21</height>
       </rect>
      </property>

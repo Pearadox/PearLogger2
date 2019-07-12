@@ -147,11 +147,14 @@ class View_Hours_Ui_frontEnd(object):
         # focus on line edit
         self.ui.lineEdit.setFocus(True)
 
+        self.ViewHoursDialog.setFixedHeight(620)
+        self.ViewHoursDialog.setFixedWidth(650)
+
         # text changed action for lineEdit
         self.ui.lineEdit.textChanged.connect(backEnd.lineEdit_textChanged)
 
         # change column widths individually
-        self.ui.tableWidget.setColumnWidth(0, 30)  # rank
+        self.ui.tableWidget.setColumnWidth(0, 45)  # rank
         self.ui.tableWidget.setColumnWidth(1, 180)  # name
         self.ui.tableWidget.setColumnWidth(2, 100)  # logged time
         self.ui.tableWidget.setColumnWidth(3, 100)  # ID
