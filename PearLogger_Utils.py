@@ -12,12 +12,6 @@ class Constants(object):
     MENTOR_TABLE_ROWS = 2
     MENTOR_TABLE_COLUMNS = 9
 
-    ID_START_STUDENT_DAWSON = 1000
-    ID_RANGE_STUDENT_DAWSON = 1000
-    ID_START_STUDENT_PEARLAND = 2000
-    ID_RANGE_STUDENT_PEARLAND = 1000
-    ID_START_STUDENT_TURNER = 3000
-    ID_RANGE_STUDENT_TURNER = 1000
     ID_START_ALUMNI = 500
     ID_RANGE_ALUMNI = 500
     ID_START_MENTOR = 100
@@ -56,9 +50,6 @@ class Profile(object):
     }
 
     CATEGORY__ID_START_DICTIONARY = {
-        1: Constants.ID_START_STUDENT_DAWSON,
-        2: Constants.ID_START_STUDENT_PEARLAND,
-        3: Constants.ID_START_STUDENT_TURNER,
         11: Constants.ID_START_ALUMNI,
         12: Constants.ID_START_MENTOR,
         13: Constants.ID_START_TEACHER,
@@ -67,14 +58,17 @@ class Profile(object):
     }
 
     CATEGORY__ID_RANGE_DICTIONARY = {
-        1: Constants.ID_RANGE_STUDENT_DAWSON,
-        2: Constants.ID_RANGE_STUDENT_PEARLAND,
-        3: Constants.ID_RANGE_STUDENT_TURNER,
         11: Constants.ID_RANGE_ALUMNI,
         12: Constants.ID_RANGE_MENTOR,
         13: Constants.ID_RANGE_TEACHER,
         21: Constants.ID_RANGE_TEAM,
         22: Constants.ID_RANGE_OTHER
+    }
+
+    CATEGORY__SCHOOL_DICTIONARY = {
+        1: '0',
+        2: '2',
+        3: '1'
     }
 
     ID = ""

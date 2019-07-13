@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>350</width>
-    <height>450</height>
+    <height>500</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -29,9 +29,9 @@
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>160</y>
-     <width>150</width>
-     <height>150</height>
+     <y>180</y>
+     <width>160</width>
+     <height>160</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -45,7 +45,7 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>320</y>
+     <y>360</y>
      <width>271</width>
      <height>20</height>
     </rect>
@@ -55,7 +55,7 @@
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>350</y>
+     <y>390</y>
      <width>100</width>
      <height>25</height>
     </rect>
@@ -76,7 +76,7 @@
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>350</y>
+     <y>390</y>
      <width>100</width>
      <height>25</height>
     </rect>
@@ -139,7 +139,7 @@
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>130</y>
+     <y>150</y>
      <width>151</width>
      <height>21</height>
     </rect>
@@ -198,7 +198,7 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>390</y>
+     <y>430</y>
      <width>271</width>
      <height>51</height>
     </rect>
@@ -210,6 +210,46 @@
    </property>
    <property name="text">
     <string>Add Person</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="grad_year_label">
+   <property name="geometry">
+    <rect>
+     <x>-10</x>
+     <y>110</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Symbol</family>
+     <pointsize>11</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Grad Year</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="graduation_year_spinBox">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>111</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <number>2020</number>
+   </property>
+   <property name="maximum">
+    <number>2040</number>
    </property>
   </widget>
  </widget>

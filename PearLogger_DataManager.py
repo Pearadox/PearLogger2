@@ -81,28 +81,56 @@ class DataManager(object):
 
         print("Appended data/people.pear")
 
-    def addPerson(self, name, category, picture_path, initialized_main_backEnd):
+    def addPerson(self, name, category, picture_path, graduation_year, initialized_main_backEnd):
         try:
-            # find an ID, loop from id start to id end of category
-            new_ID = int()
-            for new_ID in range(Profile.CATEGORY__ID_START_DICTIONARY[category],
-                                Profile.CATEGORY__ID_START_DICTIONARY[category]
-                                + Profile.CATEGORY__ID_RANGE_DICTIONARY[category]):
-                # make sure ID is unused
-                if (str(new_ID) not in self.peopleDict.keys()) and (new_ID not in self.newIDs):
-                    # add to list since new IDs aren't added to the directory dictionary
-                    self.newIDs.append(new_ID)
-                    break
+            new_ID = -1
+            if not (category is 1 or category is 2 or category is 3):
+                # not student
+                # find an ID, loop from id start to id end of category
+                new_ID = int()
+                for new_ID in range(Profile.CATEGORY__ID_START_DICTIONARY[category],
+                                    Profile.CATEGORY__ID_START_DICTIONARY[category]
+                                    + Profile.CATEGORY__ID_RANGE_DICTIONARY[category]):
+                    # make sure ID is unused
+                    if (str(new_ID) not in self.peopleDict.keys()) and (new_ID not in self.newIDs):
+                        # add to list since new IDs aren't added to the directory dictionary
+                        self.newIDs.append(new_ID)
+                        break
+            else:
+                # is student
+                # create id header
+                id_header = str(graduation_year)[2:]
+                id_header += str(Profile.CATEGORY__SCHOOL_DICTIONARY[category])
+
+                for i in range(0, 999):
+                    id_footer = str(i)
+                    # pad zero
+                    if i < 10:
+                        id_footer = "0" + id_footer
+
+                    # create new id
+                    new_ID = id_header + id_footer
+
+                    # make sure ID is unused
+                    if (str(new_ID) not in self.peopleDict.keys()) and (new_ID not in self.newIDs):
+                        # add to list since new IDs aren't added to the directory dictionary
+                        self.newIDs.append(new_ID)
+                        break
 
             print("Adding " + name + " (" + str(new_ID) + ") to people file")
+
+            if new_ID is -1:
+                # something is terribly wrong, break
+                return
 
             # add to directory file
             self.appendDirectory(str(new_ID), name, picture_path, category)
 
-            #
+            # popup info
             initialized_main_backEnd.showInfo_popup(
                 "Profile Created", (name + " (ID #" + str(new_ID) + ") has been added to the directory.\n\n "
                                                                     "Please restart PearLogger to use new profiles."))
+
         except Exception as e:
             print(e)
 

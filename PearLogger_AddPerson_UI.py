@@ -64,6 +64,11 @@ class Add_Person_Ui_backEnd(object):
         # make sure category found
         incompleteForm |= category_number is -1
 
+        # get graduation year if person is student
+        graduation_year = -1
+        if category_number is 1 or category_number is 2 or category_number is 3:
+            graduation_year = frontEnd.ui.graduation_year_spinBox.value()
+
         # get picture name
         picture_filename = str.strip(frontEnd.ui.picture_file_line_edit.text())
         # set to default if empty
@@ -72,7 +77,7 @@ class Add_Person_Ui_backEnd(object):
 
         # only add if form is complete
         if not incompleteForm:
-            core.add_person(person_name, category_number, picture_filename, main_backEnd)
+            core.add_person(person_name, category_number, picture_filename, graduation_year, main_backEnd)
             self.clearAllFields()
         else:
             print("Incomplete form")
@@ -100,6 +105,13 @@ class Add_Person_Ui_backEnd(object):
         frontEnd.ui.preview_label.setPixmap(pixmap_scaled)
         # align picture to center
         frontEnd.ui.preview_label.setAlignment(QtCore.Qt.AlignHCenter)
+
+    def comboBox_index_trigger(self):
+        index = frontEnd.ui.category_comboBox.currentIndex()
+        if index is 1 or index is 2 or index is 3:
+            frontEnd.ui.graduation_year_spinBox.setDisabled(False)
+        else:
+            frontEnd.ui.graduation_year_spinBox.setDisabled(True)
 
 
 class Add_Person_Ui_frontEnd(object):
@@ -135,6 +147,7 @@ class Add_Person_Ui_frontEnd(object):
         self.ui.preview_browse_button.pressed.connect(backEnd.browse_button_trigger)
         self.ui.preview_button.pressed.connect(backEnd.preview_button_trigger)
         self.ui.add_person_button.pressed.connect(backEnd.addPerson_button_trigger)
+        self.ui.category_comboBox.currentIndexChanged.connect(backEnd.comboBox_index_trigger)
 
 
 main_backEnd = None
