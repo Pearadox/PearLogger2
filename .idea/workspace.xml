@@ -5,7 +5,11 @@
     <bookmark url="file://$PROJECT_DIR$/PearLogger_UI.py" line="133" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e62f077-6b3f-4683-862a-ee6cbb313dd3" name="Default" comment="" />
+    <list default="true" id="6e62f077-6b3f-4683-862a-ee6cbb313dd3" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/GUI/OptionsDialog.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/OptionsDialog.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PearLogger_Options_UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/PearLogger_Options_UI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PearLogger_ViewHours_UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/PearLogger_ViewHours_UI.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,13 +18,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PearLogger_UI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="129" column="18" selection-start-line="129" selection-start-column="18" selection-end-line="129" selection-end-column="18" />
+            <state relative-caret-position="60">
+              <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
               <folding>
                 <element signature="e#26#68#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PearLogger_Options_UI.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="592">
+              <caret line="169" column="44" selection-start-line="169" selection-start-column="44" selection-end-line="169" selection-end-column="44" />
+              <folding>
+                <element signature="e#25#40#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -29,12 +45,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PearLogger_ViewHours_UI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="150" column="46" selection-start-line="150" selection-start-column="46" selection-end-line="150" selection-end-column="46" />
+            <state relative-caret-position="286">
+              <caret line="151" column="47" selection-start-line="151" selection-start-column="47" selection-end-line="151" selection-end-column="47" />
               <folding>
                 <element signature="e#25#36#0" expanded="true" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI/GUIOptionsDialog.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3234" />
           </provider>
         </entry>
       </file>
@@ -104,9 +127,9 @@
         <option value="$PROJECT_DIR$/data/loggedIn.pear" />
         <option value="$PROJECT_DIR$/PearLogger_Core.py" />
         <option value="$PROJECT_DIR$/data/log.pear" />
-        <option value="$PROJECT_DIR$/PearLogger_Options_UI.py" />
-        <option value="$PROJECT_DIR$/PearLogger_ViewHours_UI.py" />
         <option value="$PROJECT_DIR$/PearLogger_UI.py" />
+        <option value="$PROJECT_DIR$/PearLogger_ViewHours_UI.py" />
+        <option value="$PROJECT_DIR$/PearLogger_Options_UI.py" />
       </list>
     </option>
   </component>
@@ -312,7 +335,7 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12170706" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12170706" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Python Console" order="0" />
@@ -321,8 +344,8 @@
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32826748" />
-      <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.2554517" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.21985815" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.2554517" />
+      <window_info active="true" anchor="bottom" id="Debug" order="7" visible="true" weight="0.21910696" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -454,35 +477,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PearLogger_Options_UI.py">
+    <entry file="file://$PROJECT_DIR$/GUI/GUIAddPersonDialog.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PearLogger_UI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="860">
-          <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
+        <state relative-caret-position="60">
+          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
           <folding>
-            <element signature="e#25#40#0" expanded="true" />
+            <element signature="e#26#68#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/GUIAddPersonDialog.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/PearLogger_ViewHours_UI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="150" column="46" selection-start-line="150" selection-start-column="46" selection-end-line="150" selection-end-column="46" />
+        <state relative-caret-position="286">
+          <caret line="151" column="47" selection-start-line="151" selection-start-column="47" selection-end-line="151" selection-end-column="47" />
           <folding>
             <element signature="e#25#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PearLogger_UI.py">
+    <entry file="file://$PROJECT_DIR$/GUI/GUIOptionsDialog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="129" column="18" selection-start-line="129" selection-start-column="18" selection-end-line="129" selection-end-column="18" />
+        <state relative-caret-position="-3234" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PearLogger_Options_UI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="169" column="44" selection-start-line="169" selection-start-column="44" selection-end-line="169" selection-end-column="44" />
           <folding>
-            <element signature="e#26#68#0" expanded="true" />
+            <element signature="e#25#40#0" expanded="true" />
           </folding>
         </state>
       </provider>

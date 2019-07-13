@@ -147,6 +147,7 @@ class View_Hours_Ui_frontEnd(object):
         # focus on line edit
         self.ui.lineEdit.setFocus(True)
 
+        # set window size
         self.ViewHoursDialog.setFixedHeight(620)
         self.ViewHoursDialog.setFixedWidth(650)
 

@@ -167,6 +167,7 @@ class Options_Ui_frontEnd(object):
 
     # custom UI configurations
     def customConfiguration(self):
+        self.ui.tabWidget.setCurrentIndex(0)
         self.ui.apply_button.clicked.connect(backEnd.apply_button_action)
         self.ui.time_length_limit_checkBox.clicked.connect(backEnd.time_length_limit_checkbox_action)
         self.ui.time_window_checkBox.clicked.connect(backEnd.time_window_checkbox_action)

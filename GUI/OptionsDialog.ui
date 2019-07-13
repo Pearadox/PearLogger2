@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="log_rules_tab">
     <attribute name="title">
@@ -51,7 +51,7 @@
     <widget class="QLabel" name="minimum_hours_label">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>50</x>
        <y>100</y>
        <width>111</width>
        <height>31</height>
@@ -73,7 +73,7 @@
     <widget class="QDoubleSpinBox" name="minimum_hours_spinBox">
      <property name="geometry">
       <rect>
-       <x>190</x>
+       <x>170</x>
        <y>100</y>
        <width>91</width>
        <height>31</height>
@@ -89,7 +89,7 @@
     <widget class="QLabel" name="maximum_hours_label">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>40</x>
        <y>140</y>
        <width>121</width>
        <height>31</height>
@@ -111,7 +111,7 @@
     <widget class="QDoubleSpinBox" name="maximum_hours_spinBox">
      <property name="geometry">
       <rect>
-       <x>190</x>
+       <x>170</x>
        <y>140</y>
        <width>91</width>
        <height>31</height>
@@ -146,9 +146,9 @@
     <widget class="QLabel" name="window_open_label">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>-10</x>
        <y>230</y>
-       <width>141</width>
+       <width>171</width>
        <height>31</height>
       </rect>
      </property>
@@ -168,9 +168,9 @@
     <widget class="QLabel" name="window_close_label">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>-10</x>
        <y>270</y>
-       <width>141</width>
+       <width>171</width>
        <height>31</height>
       </rect>
      </property>
@@ -190,7 +190,7 @@
     <widget class="QTimeEdit" name="window_open_timeEdit">
      <property name="geometry">
       <rect>
-       <x>190</x>
+       <x>170</x>
        <y>230</y>
        <width>118</width>
        <height>31</height>
@@ -200,7 +200,7 @@
     <widget class="QTimeEdit" name="window_close_timeEdit">
      <property name="geometry">
       <rect>
-       <x>190</x>
+       <x>170</x>
        <y>270</y>
        <width>118</width>
        <height>31</height>
