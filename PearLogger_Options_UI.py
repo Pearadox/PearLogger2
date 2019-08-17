@@ -4,6 +4,7 @@ import re
 import time
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 
 from GUI.GUIOptionsDialog import Ui_optionsDialog
 from PearLogger_Utils import Profile, Constants
@@ -11,9 +12,11 @@ from PearLogger_Utils import Profile, Constants
 # Manages user interaction with GUI, passes on logistics to Core class
 class Options_Ui_backEnd(object):
 
+    currentDayType = "NULL"
+
     def initialize(self):
         self.initialize_leaderboard_checkboxes()
-        self.initialize_time_rules()
+        self.initialize_time_rules("Weekday", False)
 
     # initialize check boxes
     def initialize_leaderboard_checkboxes(self):
@@ -41,55 +44,91 @@ class Options_Ui_backEnd(object):
         if str(Profile.CATEGORY_OTHER) in visible_categories:
             frontEnd.ui.other_checkBox.setChecked(True)
 
-    def initialize_time_rules(self):
+    def initialize_time_rules(self, dayType, askSave=True):
+
+        if askSave:
+            msgBox = QMessageBox()
+            msgBox.setWindowTitle('Save Dialog')
+            msgBox.setText('Do you want to save your current configuration for ' + self.currentDayType + '?')
+            msgBox.addButton(QtWidgets.QPushButton('Save'), QMessageBox.YesRole)
+            msgBox.addButton(QtWidgets.QPushButton('Don\'t Save'), QMessageBox.NoRole)
+            msgBox.addButton(QtWidgets.QPushButton('Cancel'), QMessageBox.RejectRole)
+            reply = msgBox.exec_()
+
+            if reply == QMessageBox.AcceptRole:
+                print("Saving time config: " + self.currentDayType)
+                self.record_time_rules_config()
+            elif reply == QMessageBox.DestructiveRole:
+                return
+
 
         # get current config
         try:
+            self.currentDayType = dayType
+
             # enable configs
-            enable_time_limit_config = dm.config['Enable_Time_Limit'] is '1'
-            enable_time_window_config = dm.config['Enable_Time_Window'] is '1'
+            enable_time_limit_config = dm.config['Enable_Time_Limit_' + dayType] is '1'
+            enable_time_window_config = dm.config['Enable_Time_Window_' + dayType] is '1'
 
             # time limits
-            time_limit_minimum_config = float(dm.config['Minimum_Hours'])
-            time_limit_maximum_config = float(dm.config['Maximum_Hours'])
+            time_limit_minimum_config = float(dm.config['Minimum_Hours_' + dayType])
+            time_limit_maximum_config = float(dm.config['Maximum_Hours_' + dayType])
 
             # window time
             # split with ':' delimiter to get individual hours and minutes
-            open_delimited = re.split(':', dm.config['Window_Open'])
-            close_delimited = re.split(':', dm.config['Window_Close'])
+            open_delimited = re.split(':', dm.config['Window_Open_' + dayType])
+            close_delimited = re.split(':', dm.config['Window_Close_' + dayType])
             # calculate seconds
-            time_window_open_seconds_config = int(open_delimited[0]) * 3600 + int(open_delimited[1]) * 60
-            time_window_close_seconds_config = int(close_delimited[0]) * 3600 + int(close_delimited[1]) * 60
+            time_window_open_weekday_seconds_config = int(open_delimited[0]) * 3600 + int(open_delimited[1]) * 60
+            time_window_close_weekday_seconds_config = int(close_delimited[0]) * 3600 + int(close_delimited[1]) * 60
+
+            # set widget values based on current config
+            if dayType is "Weekday":
+                frontEnd.ui.weekday_radioButton.setChecked(True)
+            elif dayType is "Saturday":
+                frontEnd.ui.saturday_radioButton.setChecked(True)
+            elif dayType is "Sunday":
+                frontEnd.ui.sunday_radioButton.setChecked(True)
+            frontEnd.ui.time_length_limit_checkBox.setChecked(enable_time_limit_config)
+            frontEnd.ui.time_window_checkBox.setChecked(enable_time_window_config)
+            frontEnd.ui.minimum_hours_spinBox.setValue(time_limit_minimum_config)
+            frontEnd.ui.maximum_hours_spinBox.setValue(time_limit_maximum_config)
+            frontEnd.ui.window_open_timeEdit.setTime(
+                QtCore.QTime(int(time_window_open_weekday_seconds_config/3600), int(time_window_open_weekday_seconds_config%3600/60)))
+            frontEnd.ui.window_close_timeEdit.setTime(
+                QtCore.QTime(int(time_window_close_weekday_seconds_config/3600), int(time_window_close_weekday_seconds_config%3600/60)))
+
+            # turn on labels based on checkbox state
+            self.time_length_limit_checkbox_action()
+            self.time_window_checkbox_action()
         except Exception as e:
             # config file is bad
             main_ui.showError_popup(
-                "Configuration File Error", "Time limit/window configuration invalid (data/config.pear)")
+                "Configuration File Error", "Time limit/window configuration invalid (data/config.pear). "
+                                            "Delete file and restart program to reconfigure.")
 
-        # set widget values based on current config
-        frontEnd.ui.time_length_limit_checkBox.setChecked(enable_time_limit_config)
-        frontEnd.ui.time_window_checkBox.setChecked(enable_time_window_config)
-        frontEnd.ui.minimum_hours_spinBox.setValue(time_limit_minimum_config)
-        frontEnd.ui.maximum_hours_spinBox.setValue(time_limit_maximum_config)
-        frontEnd.ui.window_open_timeEdit.setTime(
-            QtCore.QTime(int(time_window_open_seconds_config/3600), int(time_window_open_seconds_config%3600/60)))
-        frontEnd.ui.window_close_timeEdit.setTime(
-            QtCore.QTime(int(time_window_close_seconds_config/3600), int(time_window_close_seconds_config%3600/60)))
+    def weekday_radioButton_action(self):
+        self.initialize_time_rules("Weekday")
 
-        # turn on labels based on checkbox state
-        self.time_length_limit_checkbox_action()
-        self.time_window_checkbox_action()
+    def saturday_radioButton_action(self):
+        self.initialize_time_rules("Saturday")
+
+    def sunday_radioButton_action(self):
+        self.initialize_time_rules("Sunday")
 
     def time_length_limit_checkbox_action(self):
-        frontEnd.ui.minimum_hours_label.setVisible(frontEnd.ui.time_length_limit_checkBox.isChecked())
-        frontEnd.ui.maximum_hours_label.setVisible(frontEnd.ui.time_length_limit_checkBox.isChecked())
-        frontEnd.ui.minimum_hours_spinBox.setVisible(frontEnd.ui.time_length_limit_checkBox.isChecked())
-        frontEnd.ui.maximum_hours_spinBox.setVisible(frontEnd.ui.time_length_limit_checkBox.isChecked())
+        visibility = frontEnd.ui.time_length_limit_checkBox.isChecked()
+        frontEnd.ui.minimum_hours_label.setVisible(visibility)
+        frontEnd.ui.maximum_hours_label.setVisible(visibility)
+        frontEnd.ui.minimum_hours_spinBox.setVisible(visibility)
+        frontEnd.ui.maximum_hours_spinBox.setVisible(visibility)
 
     def time_window_checkbox_action(self):
-        frontEnd.ui.window_open_label.setVisible(frontEnd.ui.time_window_checkBox.isChecked())
-        frontEnd.ui.window_close_label.setVisible(frontEnd.ui.time_window_checkBox.isChecked())
-        frontEnd.ui.window_open_timeEdit.setVisible(frontEnd.ui.time_window_checkBox.isChecked())
-        frontEnd.ui.window_close_timeEdit.setVisible(frontEnd.ui.time_window_checkBox.isChecked())
+        visibility = frontEnd.ui.time_window_checkBox.isChecked()
+        frontEnd.ui.window_open_label.setVisible(visibility)
+        frontEnd.ui.window_close_label.setVisible(visibility)
+        frontEnd.ui.window_open_timeEdit.setVisible(visibility)
+        frontEnd.ui.window_close_timeEdit.setVisible(visibility)
 
     # records leaderboard checkboxes into config file
     def record_leaderboard_checkbox_config(self):
@@ -117,17 +156,17 @@ class Options_Ui_backEnd(object):
         dm.config['Leaderboard_Visible_Categories'] = ','.join(visible_categories)
 
     def record_time_rules_config(self):
-        dm.config['Enable_Time_Limit'] = '1' if frontEnd.ui.time_length_limit_checkBox.isChecked() else '0'
-        dm.config['Enable_Time_Window'] = '1' if frontEnd.ui.time_window_checkBox.isChecked() else '0'
-        dm.config['Minimum_Hours'] = str(frontEnd.ui.minimum_hours_spinBox.value())
-        dm.config['Maximum_Hours'] = str(frontEnd.ui.maximum_hours_spinBox.value())
+        dm.config['Enable_Time_Limit_' + self.currentDayType] = '1' if frontEnd.ui.time_length_limit_checkBox.isChecked() else '0'
+        dm.config['Enable_Time_Window_' + self.currentDayType] = '1' if frontEnd.ui.time_window_checkBox.isChecked() else '0'
+        dm.config['Minimum_Hours_' + self.currentDayType] = str(frontEnd.ui.minimum_hours_spinBox.value())
+        dm.config['Maximum_Hours_' + self.currentDayType] = str(frontEnd.ui.maximum_hours_spinBox.value())
 
         # get QTime from window
         open_time = frontEnd.ui.window_open_timeEdit.time()
         close_time = frontEnd.ui.window_close_timeEdit.time()
 
-        dm.config['Window_Open'] = str(open_time.hour()) + ":" + str(open_time.minute())
-        dm.config['Window_Close'] = str(close_time.hour()) + ":" + str(close_time.minute())
+        dm.config['Window_Open_' + self.currentDayType] = str(open_time.hour()) + ":" + str(open_time.minute())
+        dm.config['Window_Close_' + self.currentDayType] = str(close_time.hour()) + ":" + str(close_time.minute())
 
     # action when button pressed
     def apply_button_action(self):
@@ -171,6 +210,9 @@ class Options_Ui_frontEnd(object):
         self.ui.apply_button.clicked.connect(backEnd.apply_button_action)
         self.ui.time_length_limit_checkBox.clicked.connect(backEnd.time_length_limit_checkbox_action)
         self.ui.time_window_checkBox.clicked.connect(backEnd.time_window_checkbox_action)
+        self.ui.weekday_radioButton.clicked.connect(backEnd.weekday_radioButton_action)
+        self.ui.saturday_radioButton.clicked.connect(backEnd.saturday_radioButton_action)
+        self.ui.sunday_radioButton.clicked.connect(backEnd.sunday_radioButton_action)
 
 
 main_ui = None

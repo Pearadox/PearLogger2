@@ -2,11 +2,13 @@
 
 # Form implementation generated from reading ui file 'AddPersonDialog.ui'
 #
-# Created by: PyQt5 UI code generator 5.11.3
+# Created by: PyQt5 UI code generator 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
 
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_AddPersonDialog(object):
     def setupUi(self, AddPersonDialog):
@@ -133,4 +135,3 @@ if __name__ == "__main__":
     ui.setupUi(AddPersonDialog)
     AddPersonDialog.show()
     sys.exit(app.exec_())
-

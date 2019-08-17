@@ -244,12 +244,24 @@ class DataManager(object):
             file = open("data/config.pear", 'w')
 
             #  write in default data
-            file.write("Minimum_Hours=0\n" +
-                        "Maximum_Hours=12\n" +
-                        "Window_Open=08:00\n" +
-                        "Window_Close=00:00\n" +
-                        "Enable_Time_Limit=0\n" +
-                        "Enable_Time_Window=0\n" +
+            file.write("Minimum_Hours_Weekday=0\n" +
+                        "Maximum_Hours_Weekday=12\n" +
+                        "Window_Open_Weekday=08:00\n" +
+                        "Window_Close_Weekday=00:00\n" +
+                        "Enable_Time_Limit_Weekday=0\n" +
+                        "Enable_Time_Window_Weekday=0\n" +
+                        "Minimum_Hours_Saturday=0\n" +
+                        "Maximum_Hours_Saturday=12\n" +
+                        "Window_Open_Saturday=08:00\n" +
+                        "Window_Close_Saturday=00:00\n" +
+                        "Enable_Time_Limit_Saturday=0\n" +
+                        "Enable_Time_Window_Saturday=0\n" +
+                        "Minimum_Hours_Sunday=0\n" +
+                        "Maximum_Hours_Sunday=12\n" +
+                        "Window_Open_Sunday=08:00\n" +
+                        "Window_Close_Sunday=00:00\n" +
+                        "Enable_Time_Limit_Sunday=0\n" +
+                        "Enable_Time_Window_Sunday=0\n" +
                         "Leaderboard_Visible_Categories=0,1,2,3,4,5,6,7")
             file.close()
 

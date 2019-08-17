@@ -78,6 +78,9 @@ class Profile(object):
     category = -1
     isStudent = bool()
 
+    pixmap_width = 120
+    pixmap_height = 120
+
     def __init__(self, ID, name, picture_path, category):
         self.ID = ID
         self.name = name
@@ -91,19 +94,20 @@ class Profile(object):
         try:
             picture_label = QtWidgets.QLabel()
 
-            # set maximum size of picture label
-            picture_label.setMaximumSize(150, 150)
+            # configure picture label
+            picture_label.setMaximumSize(self.pixmap_width, self.pixmap_height)
 
             # associate label with picture
             picture_label.setPixmap(self.pixmap_scaled)
 
             # set label alignment to center
-            picture_label.setAlignment(QtCore.Qt.AlignHCenter)
+            picture_label.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignTop)
 
             # create label for name and ID
             personLabel = QtWidgets.QLabel(self.name + " (" + self.ID + ")")
-            personLabel.setAlignment(QtCore.Qt.AlignCenter)
+            personLabel.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignBottom)
             personLabel.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+            personLabel.setWordWrap(True)
             font = QtGui.QFont()
             font.setFamily("OpenSymbol")
             font.setPointSize(10)
@@ -118,8 +122,8 @@ class Profile(object):
 
             # put name/ID label and picture label together in one vertical box container
             vbox = QtWidgets.QVBoxLayout()
-            vbox.addWidget(picture_label)
-            vbox.addWidget(personLabel)
+            vbox.addWidget(picture_label, 1, QtCore.Qt.AlignHCenter | QtCore.Qt.AlignTop)
+            vbox.addWidget(personLabel, 1, QtCore.Qt.AlignHCenter | QtCore.Qt.AlignBottom)
             vbox.addStretch(1)
 
             # groupBox will hold the widgets together
@@ -135,16 +139,16 @@ class Profile(object):
     # constructs a pixmap for picture label
     def construct_pixmap(self):
 
-        picture_label = QtWidgets.QLabel()
-
-        # set maximum size of picture label for reference
-        picture_label.setMaximumSize(140, 140)
+        # picture_label = QtWidgets.QLabel()
+        #
+        # # set maximum size of picture label for reference
+        # picture_label.setFixedSize(self.pixmap_width, self.pixmap_height)
 
         # create pixmap
         pixmap_raw = QtGui.QPixmap(self.picture_path)
 
         # scale pixmap with constant aspect ratio to match picture label
-        self.pixmap_scaled = pixmap_raw.scaled(picture_label.size(), QtCore.Qt.KeepAspectRatio)
+        self.pixmap_scaled = pixmap_raw.scaled(self.pixmap_width, self.pixmap_height, QtCore.Qt.KeepAspectRatio)
 
 
 class LogEntry(object):

@@ -36,18 +36,26 @@ class Core(object):
         if ID in self.dm.peopleDict.keys():
             # get current time
             currentTime = getCurrentTime()
-            print(currentTime)
+
+            # get day of week
+            day = datetime.datetime.today().weekday()
+            dayType = ""
+            if day < 5: dayType = "Weekday"
+            elif day == 5: dayType = "Saturday"
+            elif day == 6: dayType = "Sunday"
+
+            print("Logging " + str(ID) + "\tTime: " + str(currentTime) + "\tDay: " + dayType)
 
             # get profile
             profile = self.dm.peopleDict[ID]
 
             # get configs
-            enable_time_limit_config = self.dm.config['Enable_Time_Limit'] is '1'
-            enable_time_window_config = self.dm.config['Enable_Time_Window'] is '1'
-            time_limit_minimum_config = float(self.dm.config['Minimum_Hours'])
-            time_limit_maximum_config = float(self.dm.config['Maximum_Hours'])
-            open_delimited = re.split(':', self.dm.config['Window_Open'])
-            close_delimited = re.split(':', self.dm.config['Window_Close'])
+            enable_time_limit_config = self.dm.config['Enable_Time_Limit_' + dayType] is '1'
+            enable_time_window_config = self.dm.config['Enable_Time_Window_' + dayType] is '1'
+            time_limit_minimum_config = float(self.dm.config['Minimum_Hours_' + dayType])
+            time_limit_maximum_config = float(self.dm.config['Maximum_Hours_' + dayType])
+            open_delimited = re.split(':', self.dm.config['Window_Open_' + dayType])
+            close_delimited = re.split(':', self.dm.config['Window_Close_' + dayType])
             time_window_open_seconds_config = int(open_delimited[0]) * 3600 + int(open_delimited[1]) * 60
             time_window_close_seconds_config = int(close_delimited[0]) * 3600 + int(close_delimited[1]) * 60
 
@@ -115,7 +123,7 @@ class Core(object):
 
                 # check if too early to sign in
                 login_time_relative = currentTime % (24 * 3600)
-                if not inBetween(
+                if enable_time_window_config and not inBetween(
                         login_time_relative, time_window_open_seconds_config, time_window_close_seconds_config):
                     print("Blocking login (window, too early)")
                     self.showErrorMessage("Error: Login time too early! Change config or sync sys time.")

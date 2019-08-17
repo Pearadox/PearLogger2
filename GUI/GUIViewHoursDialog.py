@@ -2,11 +2,13 @@
 
 # Form implementation generated from reading ui file 'ViewHoursDialog.ui'
 #
-# Created by: PyQt5 UI code generator 5.11.3
+# Created by: PyQt5 UI code generator 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
 
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_ViewHours_Dialog(object):
     def setupUi(self, ViewHours_Dialog):
@@ -74,4 +76,3 @@ if __name__ == "__main__":
     ui.setupUi(ViewHours_Dialog)
     ViewHours_Dialog.show()
     sys.exit(app.exec_())
-

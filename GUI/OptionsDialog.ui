@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>888</width>
-    <height>601</height>
+    <width>431</width>
+    <height>388</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,8 +18,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>891</width>
-     <height>561</height>
+     <width>431</width>
+     <height>321</height>
     </rect>
    </property>
    <property name="currentIndex">
@@ -32,8 +32,8 @@
     <widget class="QCheckBox" name="time_length_limit_checkBox">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>90</y>
+       <x>180</x>
+       <y>10</y>
        <width>321</width>
        <height>31</height>
       </rect>
@@ -51,9 +51,9 @@
     <widget class="QLabel" name="minimum_hours_label">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>130</y>
-       <width>111</width>
+       <x>90</x>
+       <y>50</y>
+       <width>201</width>
        <height>31</height>
       </rect>
      </property>
@@ -73,8 +73,8 @@
     <widget class="QDoubleSpinBox" name="minimum_hours_spinBox">
      <property name="geometry">
       <rect>
-       <x>170</x>
-       <y>130</y>
+       <x>300</x>
+       <y>50</y>
        <width>91</width>
        <height>31</height>
       </rect>
@@ -89,9 +89,9 @@
     <widget class="QLabel" name="maximum_hours_label">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>170</y>
-       <width>121</width>
+       <x>100</x>
+       <y>90</y>
+       <width>191</width>
        <height>31</height>
       </rect>
      </property>
@@ -111,8 +111,8 @@
     <widget class="QDoubleSpinBox" name="maximum_hours_spinBox">
      <property name="geometry">
       <rect>
-       <x>170</x>
-       <y>170</y>
+       <x>300</x>
+       <y>90</y>
        <width>91</width>
        <height>31</height>
       </rect>
@@ -127,8 +127,8 @@
     <widget class="QCheckBox" name="time_window_checkBox">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>220</y>
+       <x>180</x>
+       <y>140</y>
        <width>301</width>
        <height>31</height>
       </rect>
@@ -146,9 +146,9 @@
     <widget class="QLabel" name="window_open_label">
      <property name="geometry">
       <rect>
-       <x>-10</x>
-       <y>260</y>
-       <width>171</width>
+       <x>50</x>
+       <y>180</y>
+       <width>241</width>
        <height>31</height>
       </rect>
      </property>
@@ -168,9 +168,9 @@
     <widget class="QLabel" name="window_close_label">
      <property name="geometry">
       <rect>
-       <x>-10</x>
-       <y>300</y>
-       <width>171</width>
+       <x>40</x>
+       <y>220</y>
+       <width>251</width>
        <height>31</height>
       </rect>
      </property>
@@ -190,8 +190,8 @@
     <widget class="QTimeEdit" name="window_open_timeEdit">
      <property name="geometry">
       <rect>
-       <x>170</x>
-       <y>260</y>
+       <x>300</x>
+       <y>180</y>
        <width>118</width>
        <height>31</height>
       </rect>
@@ -200,8 +200,8 @@
     <widget class="QTimeEdit" name="window_close_timeEdit">
      <property name="geometry">
       <rect>
-       <x>170</x>
-       <y>300</y>
+       <x>300</x>
+       <y>220</y>
        <width>118</width>
        <height>31</height>
       </rect>
@@ -210,9 +210,9 @@
     <widget class="QRadioButton" name="weekday_radioButton">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>40</y>
-       <width>82</width>
+       <x>10</x>
+       <y>60</y>
+       <width>191</width>
        <height>21</height>
       </rect>
      </property>
@@ -229,9 +229,9 @@
     <widget class="QRadioButton" name="saturday_radioButton">
      <property name="geometry">
       <rect>
-       <x>120</x>
-       <y>40</y>
-       <width>82</width>
+       <x>10</x>
+       <y>110</y>
+       <width>151</width>
        <height>21</height>
       </rect>
      </property>
@@ -248,9 +248,9 @@
     <widget class="QRadioButton" name="sunday_radioButton">
      <property name="geometry">
       <rect>
-       <x>210</x>
-       <y>40</y>
-       <width>82</width>
+       <x>10</x>
+       <y>160</y>
+       <width>131</width>
        <height>21</height>
       </rect>
      </property>
@@ -272,9 +272,9 @@
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>30</x>
        <y>10</y>
-       <width>171</width>
+       <width>291</width>
        <height>31</height>
       </rect>
      </property>
@@ -288,7 +288,7 @@
       <string>Visible Categories</string>
      </property>
      <property name="alignment">
-      <set>Qt::AlignCenter</set>
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
     </widget>
     <widget class="QCheckBox" name="student_dawson_checkBox">
@@ -296,7 +296,7 @@
       <rect>
        <x>30</x>
        <y>50</y>
-       <width>201</width>
+       <width>311</width>
        <height>21</height>
       </rect>
      </property>
@@ -315,7 +315,7 @@
       <rect>
        <x>30</x>
        <y>80</y>
-       <width>211</width>
+       <width>281</width>
        <height>21</height>
       </rect>
      </property>
@@ -334,7 +334,7 @@
       <rect>
        <x>30</x>
        <y>110</y>
-       <width>181</width>
+       <width>241</width>
        <height>21</height>
       </rect>
      </property>
@@ -448,14 +448,27 @@
   <widget class="QPushButton" name="apply_button">
    <property name="geometry">
     <rect>
-     <x>750</x>
-     <y>570</y>
+     <x>150</x>
+     <y>350</y>
      <width>121</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
     <string>Apply</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>330</y>
+     <width>391</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
    </property>
   </widget>
  </widget>
