@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e62f077-6b3f-4683-862a-ee6cbb313dd3" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/CustomQt/ComboBoxNoScroll.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/AdminTool.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/AdminTool.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/GUIAdminTool.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/GUIAdminTool.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PearAdminTool_UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/PearAdminTool_UI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/log.pear" beforeDir="false" afterPath="$PROJECT_DIR$/data/log.pear" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/people.pear" beforeDir="false" afterPath="$PROJECT_DIR$/data/people.pear" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +35,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/CustomQt" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -41,6 +44,7 @@
       <recent name="C:\Users\Allen\Documents\GitHub\PearLogger2" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Allen\Documents\GitHub\PearLogger2\CustomQt" />
       <recent name="C:\Users\Allen\Documents\GitHub\PearLogger2" />
       <recent name="C:\Users\Allen\Desktop\PearLogger2\data" />
       <recent name="C:\Users\Allen\Desktop\PearLogger2" />
@@ -199,7 +203,7 @@
       <workItem from="1565979332179" duration="757000" />
       <workItem from="1565980838824" duration="9312000" />
       <workItem from="1566032588835" duration="558000" />
-      <workItem from="1566097358139" duration="32878000" />
+      <workItem from="1566097358139" duration="37751000" />
     </task>
     <servers />
   </component>
@@ -231,8 +235,8 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/PearLogger2$PearAdminTool_UI.coverage" NAME="PearAdminTool_UI Coverage Results" MODIFIED="1566201065138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PearLogger2$PearAdminTool_UI.coverage" NAME="PearAdminTool_UI Coverage Results" MODIFIED="1566205953541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PearLogger2$PearAdminTool_Main.coverage" NAME="PearAdminTool_Main Coverage Results" MODIFIED="1566151992474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/PearLogger2$PearLogger_Main.coverage" NAME="PearLogger_Main Coverage Results" MODIFIED="1566200547300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PearLogger2$PearLogger_Main.coverage" NAME="PearLogger_Main Coverage Results" MODIFIED="1566205911958" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -5,8 +5,9 @@ import time
 from pathlib import Path
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QGraphicsOpacityEffect, QLabel, QLineEdit, QCheckBox
+from PyQt5.QtWidgets import QGraphicsOpacityEffect, QLabel, QLineEdit, QCheckBox, QComboBox
 
+from CustomQt.ComboBoxNoScroll import ComboBoxNoScroll
 from GUI import GUIAdminTool, GUIAdminToolPasswordDialog, GUIAdminToolCreateLogDialog
 
 # Manages user interaction with GUI, passes on logistics to Core class
@@ -77,15 +78,11 @@ class Ui_backEnd(object):
                     delimited = re.split(';', raw)
                     ID = str.strip(delimited[0])
                     name = str.strip(delimited[1])
-                    picture_path = Path("data/profilepics/" + str.strip(delimited[2]))
+                    picture_path = str.strip(delimited[2])
                     category = int(str.strip(delimited[3]))
 
-                    # make sure picture works or is not empty. otherwise use default
-                    if (len(str(picture_path)) is len('data\profilepics')) or (not picture_path.exists()):
-                        picture_path = Path('data/profilepics/default.jpg')
-
                     # record the data
-                    self.peopleList.append(Profile(ID, name, str(picture_path), category))
+                    self.peopleList.append(Profile(ID, name, picture_path, category))
 
                 except Exception as e:
                     print(e)
@@ -161,30 +158,40 @@ class Ui_backEnd(object):
             ID_lEdit = QLineEdit(str(profile.ID))
             name_lEdit = QLineEdit(profile.name)
             picture_lEdit = QLineEdit(profile.picture_path)
-            category_lEdit = QLineEdit(str(profile.category))
+
+            scrollArea = QtWidgets.QScrollArea()
+            frmScroll = QtWidgets.QFrame(scrollArea)
+            category_comboBox = ComboBoxNoScroll(frmScroll)
+
+            index = 0
+            for num, description in Profile.CATEGORY__DICTIONARY.items():
+                category_comboBox.addItem(description)
+
+                if int(profile.category) == num:
+                    category_comboBox.setCurrentIndex(index)
+                index += 1
 
             ID_lEdit.setReadOnly(True)
             name_lEdit.setReadOnly(False)
             picture_lEdit.setReadOnly(False)
-            category_lEdit.setReadOnly(False)
 
             ID_lEdit.setStyleSheet('border: none')
             name_lEdit.setStyleSheet('border: none')
             picture_lEdit.setStyleSheet('border: none')
-            category_lEdit.setStyleSheet('border: none')
+            category_comboBox.setStyleSheet('border: none')
 
             ui.directoryTableWidget.setCellWidget(currentRow, 0, delete_cbox)
             ui.directoryTableWidget.setCellWidget(currentRow, 1, ID_lEdit)
             ui.directoryTableWidget.setCellWidget(currentRow, 2, name_lEdit)
             ui.directoryTableWidget.setCellWidget(currentRow, 3, picture_lEdit)
-            ui.directoryTableWidget.setCellWidget(currentRow, 4, category_lEdit)
+            ui.directoryTableWidget.setCellWidget(currentRow, 4, category_comboBox)
 
             currentRow += 1
 
     def rewriteLogCall(self):
         fileBuffer = ""
 
-        for i in range(1, ui.logTableWidget.rowCount()+1):
+        for i in range(1, ui.logTableWidget.rowCount() + 1):
             row = ui.logTableWidget.rowCount() - i
             delete = ui.logTableWidget.cellWidget(row, 0).isChecked()
             if delete: continue
@@ -231,7 +238,7 @@ class Ui_backEnd(object):
 
                 if logout_unix == 0 or login_unix == 0:
                     self.showError_popup("Log Table Error",
-                                             "Time not filled out (Today is not the epoch!): Row " + str(row))
+                                         "Time not filled out (Today is not the epoch!): Row " + str(row))
 
                 logText = str(ID) + ";" + str(login_unix) + ";" + str(logout_unix) + "\n"
 
@@ -249,6 +256,44 @@ class Ui_backEnd(object):
         self.showInfo_popup("Rewrite Success", "Rewrote data/log.pear")
         self.readLog()
         self.populateLogTable()
+
+    def rewriteDirectoryCall(self):
+        fileBuffer = ""
+
+        for row in range(0, ui.directoryTableWidget.rowCount()):
+            delete = ui.directoryTableWidget.cellWidget(row, 0).isChecked()
+            if delete: continue
+
+            try:
+                ID = ui.directoryTableWidget.cellWidget(row, 1).text()
+                name = ui.directoryTableWidget.cellWidget(row, 2).text()
+                picture = ui.directoryTableWidget.cellWidget(row, 3).text()
+                category = '-1'
+
+                for num, description in Profile.CATEGORY__DICTIONARY.items():
+                    selectedText = ui.directoryTableWidget.cellWidget(row, 4).currentText()
+
+                    if selectedText == description:
+                        category = str(num)
+                        continue
+
+                directoryText = ID + ";" + name + ";" + picture + ";" + category + "\n"
+                print(category)
+
+                fileBuffer += directoryText
+
+            except Exception as e:
+                print(e)
+                self.showError_popup("Directory Table Error", "Error parsing directory table: Row " + str(row))
+                return
+
+        log_file = open("data/people.pear", 'w')
+        log_file.write(fileBuffer)
+        log_file.close()
+        print("Rewrote data/people.pear")
+        self.showInfo_popup("Rewrite Success", "Rewrote data/people.pear")
+        self.readDirectory()
+        self.populateDirectoryTable()
 
     def showError_popup(self, title, message):
         msg = QtWidgets.QMessageBox()
@@ -320,6 +365,7 @@ class Ui_frontEnd(object):
         ui.addButton.clicked.connect(self.addLogEntryAddCall)
         ui.tabWidget.setCurrentIndex(0)
         ui.rewriteLogButton.clicked.connect(backEnd.rewriteLogCall)
+        ui.rewriteDirectoryButton.clicked.connect(backEnd.rewriteDirectoryCall)
         self.createLogUI.submitButton.clicked.connect(self.addLogEntrySubmitCall)
 
     def addLogEntryAddCall(self):

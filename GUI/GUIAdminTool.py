@@ -106,7 +106,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Admin Tool"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "PearLogger Admin Tool"))
         item = self.logTableWidget.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Del"))
         item = self.logTableWidget.horizontalHeaderItem(1)
