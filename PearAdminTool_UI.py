@@ -239,6 +239,7 @@ class Ui_backEnd(object):
                 if logout_unix == 0 or login_unix == 0:
                     self.showError_popup("Log Table Error",
                                          "Time not filled out (Today is not the epoch!): Row " + str(row))
+                    return
 
                 logText = str(ID) + ";" + str(login_unix) + ";" + str(logout_unix) + "\n"
 
@@ -278,8 +279,6 @@ class Ui_backEnd(object):
                         continue
 
                 directoryText = ID + ";" + name + ";" + picture + ";" + category + "\n"
-                print(category)
-
                 fileBuffer += directoryText
 
             except Exception as e:
