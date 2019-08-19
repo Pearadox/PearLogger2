@@ -14,7 +14,7 @@ from PearLogger_Utils import Profile, LogEntry
 
 
 class Ui_backEnd(object):
-    peopleDict = list()
+    peopleList = list()
     log = list()
 
     def readLog(self):
@@ -28,6 +28,7 @@ class Ui_backEnd(object):
             file.close()
 
         # process logs
+        self.log.clear()
         with open("data/log.pear") as inf:
             # keep track of current line for error message
             lineCount = 0
@@ -63,6 +64,7 @@ class Ui_backEnd(object):
             file.close()
 
         # process people into dictionary
+        self.peopleList.clear()
         with open("data/people.pear") as inf:
             # keep track of current line for error message
             lineCount = 0
@@ -83,7 +85,7 @@ class Ui_backEnd(object):
                         picture_path = Path('data/profilepics/default.jpg')
 
                     # record the data
-                    self.peopleDict.append(Profile(ID, name, str(picture_path), category))
+                    self.peopleList.append(Profile(ID, name, str(picture_path), category))
 
                 except Exception as e:
                     print(e)
@@ -145,7 +147,7 @@ class Ui_backEnd(object):
             currentRow -= 1
 
     def populateDirectoryTable(self):
-        ui.directoryTableWidget.setRowCount(len(self.peopleDict))
+        ui.directoryTableWidget.setRowCount(len(self.peopleList))
         currentRow = 0
 
         ui.directoryTableWidget.setColumnWidth(0, 25)
@@ -154,7 +156,7 @@ class Ui_backEnd(object):
         ui.directoryTableWidget.setColumnWidth(3, 350)
         ui.directoryTableWidget.setColumnWidth(4, 45)
 
-        for profile in self.peopleDict:
+        for profile in self.peopleList:
             delete_cbox = QCheckBox()
             ID_lEdit = QLineEdit(str(profile.ID))
             name_lEdit = QLineEdit(profile.name)
@@ -180,11 +182,10 @@ class Ui_backEnd(object):
             currentRow += 1
 
     def rewriteLogCall(self):
-        ui.clearFilterButton.click()
-
         fileBuffer = ""
 
-        for row in range(0, ui.logTableWidget.rowCount()):
+        for i in range(1, ui.logTableWidget.rowCount()+1):
+            row = ui.logTableWidget.rowCount() - i
             delete = ui.logTableWidget.cellWidget(row, 0).isChecked()
             if delete: continue
 
@@ -221,24 +222,49 @@ class Ui_backEnd(object):
                 login_seconds = login_h * 3600 + login_m * 60 + login_s
                 logout_seconds = logout_h * 3600 + logout_m * 60 + logout_s
 
-                login_unix = dateIn_unix + login_seconds
-                logout_unix = dateOut_unix + logout_seconds
+                login_unix = int(dateIn_unix + login_seconds)
+                logout_unix = int(dateOut_unix + logout_seconds)
 
                 if logout_unix < login_unix:
-                    frontEnd.showError_popup("Log Table Error", "Logout time is before login time: Row " + str(row))
+                    self.showError_popup("Log Table Error", "Logout time is before login time: Row " + str(row))
                     return
 
                 if logout_unix == 0 or login_unix == 0:
-                    frontEnd.showError_popup("Log Table Error",
+                    self.showError_popup("Log Table Error",
                                              "Time not filled out (Today is not the epoch!): Row " + str(row))
+
+                logText = str(ID) + ";" + str(login_unix) + ";" + str(logout_unix) + "\n"
+
+                fileBuffer += logText
 
             except Exception as e:
                 print(e)
-                frontEnd.showError_popup("Log Table Error", "Error parsing log table: Row " + str(row))
+                self.showError_popup("Log Table Error", "Error parsing log table: Row " + str(row))
                 return
 
-        # log_file = open("data/log.pear", 'w')
+        log_file = open("data/log.pear", 'w')
+        log_file.write(fileBuffer)
+        log_file.close()
         print("Rewrote data/log.pear")
+        self.showInfo_popup("Rewrite Success", "Rewrote data/log.pear")
+        self.readLog()
+        self.populateLogTable()
+
+    def showError_popup(self, title, message):
+        msg = QtWidgets.QMessageBox()
+        msg.setIcon(QtWidgets.QMessageBox.Critical)  # set the icon of the prompt
+        msg.setWindowTitle(title)
+        msg.setText(message)
+        msg.setStandardButtons(QtWidgets.QMessageBox.Ok)  # set the buttons available on the prompt
+        msg.exec_()
+
+    def showInfo_popup(self, title, message):
+        msg = QtWidgets.QMessageBox()
+        msg.setIcon(QtWidgets.QMessageBox.Information)  # set the icon of the prompt
+        msg.setWindowTitle(title)
+        msg.setText(message)
+        msg.setStandardButtons(QtWidgets.QMessageBox.Ok)  # set the buttons available on the prompt
+        msg.exec_()
 
 
 class Ui_frontEnd(object):
@@ -286,26 +312,15 @@ class Ui_frontEnd(object):
             backEnd.populateDirectoryTable()
             backEnd.populateLogTable()
         else:
-            self.showError_popup("Wrong Password", "Try again, but better.")
+            backEnd.showError_popup("Wrong Password", "Try again, but better.")
 
     # custom UI configurations
     def customConfiguration(self):
         self.passwordUI.submitButton.clicked.connect(self.checkPassword)
         ui.addButton.clicked.connect(self.addLogEntryAddCall)
         ui.tabWidget.setCurrentIndex(0)
-        ui.applyFilterButton.clicked.connect(self.applyLogFilterCall)
-        ui.clearFilterButton.clicked.connect(backEnd.populateLogTable)
         ui.rewriteLogButton.clicked.connect(backEnd.rewriteLogCall)
         self.createLogUI.submitButton.clicked.connect(self.addLogEntrySubmitCall)
-
-    def showError_popup(self, title, message):
-        msg = QtWidgets.QMessageBox()
-        msg.setIcon(QtWidgets.QMessageBox.Critical)  # set the icon of the prompt
-        msg.setWindowTitle(title)
-        msg.setText(message)
-        # msg.resize()
-        msg.setStandardButtons(QtWidgets.QMessageBox.Ok)  # set the buttons available on the prompt
-        msg.exec_()
 
     def addLogEntryAddCall(self):
         self.CreateLogEntryDialog.show()
@@ -321,21 +336,6 @@ class Ui_frontEnd(object):
 
         ui.logTableWidget.insertRow(0)
         backEnd.constructLogRow(0, LogEntry(IDEntry, 0, 0))
-
-    # def applyLogFilterCall(self):
-    #     filter = ui.filterLineEdit.text()
-    #     if len(filter) is 0 or not filter.isdigit():
-    #         return
-    #
-    #     ui.clearFilterButton.click()
-    #
-    #     line = 0
-    #     while line < ui.logTableWidget.rowCount():
-    #         ID = ui.logTableWidget.cellWidget(line, 1).text()
-    #         if ID != filter:
-    #             ui.logTableWidget.removeRow(line)
-    #         else:
-    #             line += 1
 
 
 ui = GUIAdminTool.Ui_MainWindow()
