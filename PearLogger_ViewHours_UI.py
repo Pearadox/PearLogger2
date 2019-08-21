@@ -17,9 +17,6 @@ class View_Hours_Ui_backEnd(object):
         # create sorted time list of tuples
         self.sortedTimes = sorted(dm.loggedTime.items(), key=lambda kv: kv[1], reverse=True)
 
-        # create keyword model for search function
-        self.create_model()
-
         # assign ranks
         self.assignRanks()
 
@@ -53,7 +50,11 @@ class View_Hours_Ui_backEnd(object):
         # loop through sorted times
         for (ID, time) in self.sortedTimes:
             # get profile
-            profile = dm.peopleDict[ID]
+            profile = None
+            try:
+                profile = dm.peopleDict[ID]
+            except:
+                return
 
             # get name for filtering
             name = profile.name
@@ -98,17 +99,6 @@ class View_Hours_Ui_backEnd(object):
 
         # remove skipped rows
         frontEnd.ui.tableWidget.setRowCount(len(self.sortedTimes)-skipped)
-
-    # creates keyword model for search
-    def create_model(self):
-        self.keywords = []
-
-        # loop through sortedTimes to get all the IDs (we don't really need the time)
-        for (ID, time) in self.sortedTimes:
-            # also add the name
-            name = dm.peopleDict[ID].name
-            self.keywords.append(ID)
-            self.keywords.append(name)
 
     def reset_table(self):
         # clear table

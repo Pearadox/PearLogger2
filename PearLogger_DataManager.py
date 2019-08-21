@@ -173,6 +173,9 @@ class DataManager(object):
                     # add dt to logged
                     self.loggedTime[ID] += logout_time - login_time
 
+                    if ID not in self.peopleDict.keys():
+                        print("ID found in log does not exist: ID #" + str(ID))
+
                 except:
                     print("ERROR: Parsing error in log file (data/log.pear, line " + str(lineCount) + ")")
         print("Loaded data/log.pear")

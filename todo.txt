@@ -1,3 +1,2 @@
-weekday, sat, sun time window and time length
 sum up for every ID
 build season hours vs nonbuild season
