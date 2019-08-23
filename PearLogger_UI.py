@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import QGraphicsOpacityEffect
 
 from GUI.GUIPearLog import Ui_mainWindow
 from PearLogger_Core import Core
+from PearLogger_GenerateReport_UI import GenerateReport_UI_frontEnd
 from PearLogger_Utils import Constants
 from PearLogger_AddPerson_UI import Add_Person_Ui_frontEnd
 from PearLogger_ViewHours_UI import View_Hours_Ui_frontEnd
@@ -49,7 +50,7 @@ class Ui_backEnd(object):
 
     # menu button, generates csv report of hours
     def generateReport_menu_trigger(self):
-        pass
+        self.show_generateReport_dialog()
 
     # menu button, popup GUI to change options
     def options_menu_trigger(self):
@@ -58,6 +59,12 @@ class Ui_backEnd(object):
     # menu button, pop GUI to add person
     def addPerson_menu_trigger(self):
         self.show_addPerson_dialog()
+
+    def restart_menu_trigger(self):
+        import os
+        import sys
+        print("RESTARTING PROGRAM...")
+        os.execl(sys.executable, sys.executable, *sys.argv)
 
     # creates ID box with name, picture, and ID in table
     def setIDBox(self, groupBox, isStudent, row, column):
@@ -173,6 +180,11 @@ class Ui_backEnd(object):
         options_ui = Options_Ui_frontEnd()
         options_ui.initialize(core, core.dm, self)
 
+    def show_generateReport_dialog(self):
+        print("Showing Generate Report Dialog")
+        generateReport_ui = GenerateReport_UI_frontEnd()
+        generateReport_ui.initialize(core.dm)
+
 
 class Ui_frontEnd(object):
 
@@ -231,6 +243,7 @@ class Ui_frontEnd(object):
         ui.actionExit_Fullscreen.triggered.connect(self.show_windowed)
         ui.actionFullscreen.triggered.connect(self.show_fullscreen)
         ui.actionAdd_Person.triggered.connect(backEnd.addPerson_menu_trigger)
+        ui.actionRestart.triggered.connect(backEnd.restart_menu_trigger)
 
     def window_keypress_event(self, event):
         # pressing escapes switches to windowed mode

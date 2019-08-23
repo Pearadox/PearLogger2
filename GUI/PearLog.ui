@@ -1275,7 +1275,6 @@
      <string>People</string>
     </property>
     <addaction name="actionAdd_Person"/>
-    <addaction name="actionModify_Person"/>
     <addaction name="separator"/>
     <addaction name="actionView_Hours"/>
    </widget>
@@ -1286,6 +1285,8 @@
     <addaction name="actionOptions"/>
     <addaction name="separator"/>
     <addaction name="actionGenerate_Report"/>
+    <addaction name="separator"/>
+    <addaction name="actionRestart"/>
     <addaction name="separator"/>
     <addaction name="actionExit_Fullscreen"/>
     <addaction name="actionFullscreen"/>
@@ -1320,11 +1321,6 @@
     <string>Clear All</string>
    </property>
   </action>
-  <action name="actionModify_Person">
-   <property name="text">
-    <string>Modify Person</string>
-   </property>
-  </action>
   <action name="actionFullscreen">
    <property name="text">
     <string>Fullscreen</string>
@@ -1338,6 +1334,11 @@
   <action name="actionOptions">
    <property name="text">
     <string>Options</string>
+   </property>
+  </action>
+  <action name="actionRestart">
+   <property name="text">
+    <string>Restart</string>
    </property>
   </action>
  </widget>

@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e62f077-6b3f-4683-862a-ee6cbb313dd3" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/PearLogger_GenerateReport_UI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PearAdminTool_UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/PearAdminTool_UI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PearLogger_DataManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/PearLogger_DataManager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PearLogger_ViewHours_UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/PearLogger_ViewHours_UI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/GUIPearLog.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/GUIPearLog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/PearLog.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/PearLog.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/ui2py.bat" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/ui2py.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PearLogger_AddPerson_UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/PearLogger_AddPerson_UI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PearLogger_UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/PearLogger_UI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PearLogger_Utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/PearLogger_Utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/config.pear" beforeDir="false" afterPath="$PROJECT_DIR$/data/config.pear" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/log.pear" beforeDir="false" afterPath="$PROJECT_DIR$/data/log.pear" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/people.pear" beforeDir="false" afterPath="$PROJECT_DIR$/data/people.pear" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/todo.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +38,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/CustomQt" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -43,8 +47,8 @@
       <recent name="C:\Users\Allen\Documents\GitHub\PearLogger2" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Allen\Documents\GitHub\PearLogger2\CustomQt" />
       <recent name="C:\Users\Allen\Documents\GitHub\PearLogger2" />
+      <recent name="C:\Users\Allen\Documents\GitHub\PearLogger2\CustomQt" />
       <recent name="C:\Users\Allen\Desktop\PearLogger2\data" />
       <recent name="C:\Users\Allen\Desktop\PearLogger2" />
     </key>
@@ -61,7 +65,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.PearAdminTool_UI (1)">
+  <component name="RunManager" selected="Python.PearLogger_Main">
     <configuration name="PearAdminTool_UI (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PearLogger2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -84,7 +88,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="PearAdminTool_UI" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="PearLogger_GenerateReport_UI" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PearLogger2" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -97,7 +101,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Allen\Documents\GitHub\PearLogger2\PearAdminTool_UI.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PearLogger_GenerateReport_UI.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -128,7 +132,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="PearLogger_ViewHours_UI" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="PearLogger_UI" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PearLogger2" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -141,7 +145,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PearLogger_ViewHours_UI.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PearLogger_UI.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -174,18 +178,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.PearLogger_Main" />
-      <item itemvalue="Python.PearAdminTool_UI" />
-      <item itemvalue="Python.PearLogger_ViewHours_UI" />
       <item itemvalue="Python.PearAdminTool_UI (1)" />
       <item itemvalue="Python._PyCompiler" />
+      <item itemvalue="Python.PearLogger_UI" />
+      <item itemvalue="Python.PearLogger_GenerateReport_UI" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.PearLogger_Main" />
+        <item itemvalue="Python.PearLogger_GenerateReport_UI" />
+        <item itemvalue="Python.PearLogger_UI" />
         <item itemvalue="Python.PearAdminTool_UI (1)" />
         <item itemvalue="Python._PyCompiler" />
-        <item itemvalue="Python.PearAdminTool_UI" />
-        <item itemvalue="Python.PearLogger_Main" />
-        <item itemvalue="Python.PearLogger_ViewHours_UI" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +206,7 @@
       <workItem from="1565979332179" duration="757000" />
       <workItem from="1565980838824" duration="9312000" />
       <workItem from="1566032588835" duration="558000" />
-      <workItem from="1566097358139" duration="48686000" />
+      <workItem from="1566097358139" duration="64644000" />
     </task>
     <servers />
   </component>
@@ -240,6 +244,8 @@
     <SUITE FILE_PATH="coverage/PearLogger2$PearLogger_ViewHours_UI.coverage" NAME="PearLogger_ViewHours_UI Coverage Results" MODIFIED="1566368943163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PearLogger2$_PyCompiler.coverage" NAME="_PyCompiler Coverage Results" MODIFIED="1566375263095" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PearLogger2$PearAdminTool_UI__1_.coverage" NAME="PearAdminTool_UI (1) Coverage Results" MODIFIED="1566375305580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/PearLogger2$PearLogger_Main.coverage" NAME="PearLogger_Main Coverage Results" MODIFIED="1566369260724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PearLogger2$PearLogger_UI.coverage" NAME="PearLogger_UI Coverage Results" MODIFIED="1566471006194" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PearLogger2$PearLogger_GenerateReport_UI.coverage" NAME="PearLogger_GenerateReport_UI Coverage Results" MODIFIED="1566475024024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PearLogger2$PearLogger_Main.coverage" NAME="PearLogger_Main Coverage Results" MODIFIED="1566599543388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

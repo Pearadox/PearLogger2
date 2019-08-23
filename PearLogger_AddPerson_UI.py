@@ -3,8 +3,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QGraphicsOpacityEffect
 
-import PearLogger_Core
-import PearLogger_UI
 from GUI.GUIAddPersonDialog import Ui_AddPersonDialog
 from PearLogger_Utils import Profile
 

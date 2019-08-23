@@ -156,6 +156,8 @@ class LogEntry(object):
     login_time = -1
     logout_time = -1
 
+    length = logout_time - login_time
+
     def __init__(self, ID, login_time, logout_time):
         self.ID = ID
         self.login_time = login_time
