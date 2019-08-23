@@ -186,6 +186,8 @@ class DataManager(object):
             logFile.write(ID + ";" + str(login_time) + ";" + str(logout_time) + "\n")
             logFile.close()
 
+        self.log.append(LogEntry(str(ID), login_time, logout_time))
+
         print("Appended data/log.pear")
 
     # read currently logged in file
