@@ -17,6 +17,26 @@ class Ui_backEnd(object):
     student_table_rows = Constants.STUDENT_TABLE_ROWS
     mentor_table_rows = Constants.MENTOR_TABLE_ROWS
 
+    def initialize_IDLookup(self):
+        modelList = list()
+        for ID in core.dm.peopleDict.keys():
+            name = core.dm.peopleDict[ID].name
+
+            searchResult = name + " (" + str(ID) + ")"
+            modelList.append(searchResult)
+
+        model = QtCore.QStringListModel()
+        model.setStringList(modelList)
+
+        completer = QtWidgets.QCompleter()
+        completer.setModel(model)
+        completer.setFilterMode(QtCore.Qt.MatchContains)
+
+        ui.lookupLineEdit.setCompleter(completer)
+
+    def clearIDLookupCall(self):
+        ui.lookupLineEdit.clear()
+
     # triggered when hitting enter on login lineEdit
     def signIn_lineEdit_trigger(self):
         # get ID login entry, ignore if not an integer
@@ -201,6 +221,9 @@ class Ui_frontEnd(object):
         # check for bad system time change
         core.check_bad_time_change()
 
+        #intialize ID lookup
+        backEnd.initialize_IDLookup()
+
     # constructor, initialize UI
     def __init__(self):
         import sys
@@ -233,6 +256,9 @@ class Ui_frontEnd(object):
 
         # connect - hitting 'ESC' escapes fullscreen
         self.mainWindow.keyPressEvent = self.window_keypress_event
+
+        # clear lookup lineEdit button
+        ui.lookupClearButton.clicked.connect(backEnd.clearIDLookupCall)
 
         # connect - menu action buttons
         ui.actionSign_Out_All.triggered.connect(backEnd.signOutAll_menu_trigger)

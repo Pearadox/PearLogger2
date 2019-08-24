@@ -1,3 +1,11 @@
+# !!!!!!!!!
+#
+# Ask me if you have trouble running this!!!
+#
+# !!!!!!!!!
+
+
+
 # front and back end GUI
 import datetime
 import operator

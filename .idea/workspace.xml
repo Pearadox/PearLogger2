@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e62f077-6b3f-4683-862a-ee6cbb313dd3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/PearLogger_DataManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/PearLogger_DataManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/GUIGenerateReportDialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/GUIGenerateReportDialog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/GUIPearLog.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/GUIPearLog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/PearLog.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/PearLog.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PearAdminTool_UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/PearAdminTool_UI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PearLogger_UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/PearLogger_UI.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -196,7 +201,7 @@
       <workItem from="1565979332179" duration="757000" />
       <workItem from="1565980838824" duration="9312000" />
       <workItem from="1566032588835" duration="558000" />
-      <workItem from="1566097358139" duration="65108000" />
+      <workItem from="1566097358139" duration="74061000" />
     </task>
     <servers />
   </component>
@@ -236,6 +241,6 @@
     <SUITE FILE_PATH="coverage/PearLogger2$PearAdminTool_UI__1_.coverage" NAME="PearAdminTool_UI (1) Coverage Results" MODIFIED="1566375305580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PearLogger2$PearLogger_UI.coverage" NAME="PearLogger_UI Coverage Results" MODIFIED="1566471006194" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PearLogger2$PearLogger_GenerateReport_UI.coverage" NAME="PearLogger_GenerateReport_UI Coverage Results" MODIFIED="1566475024024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/PearLogger2$PearLogger_Main.coverage" NAME="PearLogger_Main Coverage Results" MODIFIED="1566600003206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PearLogger2$PearLogger_Main.coverage" NAME="PearLogger_Main Coverage Results" MODIFIED="1566628822629" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

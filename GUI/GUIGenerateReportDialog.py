@@ -71,6 +71,7 @@ class Ui_GenerateReportDialog(object):
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.sortTime_radioButton = QtWidgets.QRadioButton(GenerateReportDialog)
+        self.sortTime_radioButton.setChecked(True)
         self.sortTime_radioButton.setObjectName("sortTime_radioButton")
         self.horizontalLayout.addWidget(self.sortTime_radioButton)
         self.sortID_radioButton = QtWidgets.QRadioButton(GenerateReportDialog)
