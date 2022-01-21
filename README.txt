@@ -16,3 +16,4 @@ Adding Pictures:
 Notes:
 -Hours for a person are recorded whenever the person logs out
 -Different scalings on different computers will mess up the UI
+-to install pyqt5 on a raspberry pi run "sudo apt-get install python3-pyqt5"
